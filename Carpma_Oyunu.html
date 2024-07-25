@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Çarpma Oyunu</title>
+
+
+  <title>Matematik Çalışma Sayfası - Temel İşlemler</title>
+  <meta name="description" content="Bu çalışma sayfasında temel matematik işlemlerini (toplama, çıkarma, çarpma, bölme) pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.">
+  <meta name="keywords" content="matematik, temel işlemler, toplama, çıkarma, çarpma, bölme, çalışma sayfası, eğitim">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Matematik Öğretmeni, Eğitim Platformu">
+  <meta name="copyright" content="© 2023 Matematik Çalışma Sayfası. Tüm hakları saklıdır.">
+  <meta name="revisit-after" content="7 days">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Matematik Çalışma Sayfası - Temel İşlemler">
+  <meta property="og:description" content="Bu çalışma sayfasında temel matematik işlemlerini (toplama, çıkarma, çarpma, bölme) pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/matematik-calisma-sayfasi">
+  <meta property="og:image" content="https://example.com/matematik-calisma-sayfasi-gorsel.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://example.com/matematik-calisma-sayfasi">
+
+
+  <!-- title: Sayfanın başlığını belirtir. 
+  description: Sayfanın kısa açıklamasını verir.
+  keywords: Sayfayla ilgili anahtar kelimeleri listeler.
+  robots: Arama motorlarının sayfayı indexlemesini ve takip etmesini sağlar.
+  Open Graph meta tags: Sosyal medya paylaşımlarında sayfanın nasıl görüneceğini belirler.
+  canonical: Sayfanın asıl URL'sini gösterir.
+  author: Sayfanın yazarını veya yazarlarını belirtir.
+copyright: Sayfanın telif hakkı bilgilerini verir.
+revisit-after: Arama motorlarının sayfayı ne sıklıkta ziyaret etmesi gerektiğini belirler.
+viewport: Sayfanın mobil cihazlarda nasıl görüntüleneceğini ayarlar.
+  -->
+
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .game-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #e74c3c; /* Kırmızı */
+      margin-top: 0;
+    }
+
+    #question {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #2980b9; /* Mavi */
+    }
+
+    #answer {
+      font-size: 18px;
+      padding: 10px;
+      width: 100px;
+      border: 2px solid #e74c3c; /* Kırmızı */
+      border-radius: 5px;
+    }
+
+    #submit-btn {
+      background-color: #e74c3c; /* Kırmızı */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #result {
+      font-size: 18px;
+      margin-top: 20px;
+      color: #2980b9; /* Mavi */
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <h1>Çarpma Oyunu</h1>
+    <div id="question"></div>
+    <input type="number" id="answer" placeholder="Cevabı girin">
+    <button id="submit-btn">Gönder</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const questionElement = document.getElementById('question');
+    const answerInput = document.getElementById('answer');
+    const submitBtn = document.getElementById('submit-btn');
+    const resultElement = document.getElementById('result');
+
+    function generateQuestion() {
+      const num1 = Math.floor(Math.random() * 10) + 1;
+      const num2 = Math.floor(Math.random() * 10) + 1;
+      const correctAnswer = num1 * num2;
+      questionElement.textContent = `${num1} x ${num2} = ?`;
+      return correctAnswer;
+    }
+
+    let correctAnswer = generateQuestion();
+
+    submitBtn.addEventListener('click', () => {
+      const userAnswer = parseInt(answerInput.value);
+      if (userAnswer === correctAnswer) {
+        resultElement.textContent = '✨ Tebrikler, doğru cevap! ✨';
+        resultElement.style.color = '#2ecc71'; // Yeşil
+      } else {
+        resultElement.textContent = '😔 Üzgünüm, yanlış cevap.';
+        resultElement.style.color = '#e74c3c'; // Kırmızı
+      }
+      answerInput.value = '';
+      correctAnswer = generateQuestion();
+    });
+  </script>
+</body>
+</html>
