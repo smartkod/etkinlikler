@@ -1,2 +1,3 @@
-merhaba buetkinkinlikte 
-Bu çalışma sayfasında temel matematikte çarpma işlemlerini pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.
+merhaba, 
+Bu çalışma sayfasında temel matematik  işlemlerini ve diğer dersleri pratik yapabilirsiniz.
+Öğrenciler için mükemmel bir kaynak.
