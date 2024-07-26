@@ -2,9 +2,6 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Çarpma Oyunu</title>
-
 
   <title>Matematik Çalışma Sayfası - Temel İşlemler</title>
   <meta name="description" content="Bu çalışma sayfasında temel matematik işlemlerini (toplama, çıkarma, çarpma, bölme) pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.">
@@ -19,121 +16,238 @@
   <meta property="og:title" content="Matematik Çalışma Sayfası - Temel İşlemler">
   <meta property="og:description" content="Bu çalışma sayfasında temel matematik işlemlerini (toplama, çıkarma, çarpma, bölme) pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://example.com/matematik-calisma-sayfasi">
+  <meta property="og:url" content="https://etkinlikler.onrender.com/">
   <meta property="og:image" content="https://example.com/matematik-calisma-sayfasi-gorsel.jpg">
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://example.com/matematik-calisma-sayfasi">
+  <link rel="canonical" href="https://etkinlikler.onrender.com/">
+  
 
-
-  <!-- title: Sayfanın başlığını belirtir. 
-  description: Sayfanın kısa açıklamasını verir.
-  keywords: Sayfayla ilgili anahtar kelimeleri listeler.
-  robots: Arama motorlarının sayfayı indexlemesini ve takip etmesini sağlar.
-  Open Graph meta tags: Sosyal medya paylaşımlarında sayfanın nasıl görüneceğini belirler.
-  canonical: Sayfanın asıl URL'sini gösterir.
-  author: Sayfanın yazarını veya yazarlarını belirtir.
-copyright: Sayfanın telif hakkı bilgilerini verir.
-revisit-after: Arama motorlarının sayfayı ne sıklıkta ziyaret etmesi gerektiğini belirler.
-viewport: Sayfanın mobil cihazlarda nasıl görüntüleneceğini ayarlar.
-  -->
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resim Albümü, Profil ve Blog</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <style>
+    /* Global Styles */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
     }
 
-    .game-container {
-      background-color: #fff;
+    /* Sidebar Menu Styles */
+    .sidebar {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidebar nav li {
+      margin-bottom: 20px;
+    }
+
+    .sidebar nav a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .sidebar nav a:hover {
+      background-color: #555;
+    }
+
+    /* Main Content Styles */
+    .main-content {
+      flex-grow: 1;
       padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-left: 200px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .section {
+      scroll-snap-align: start;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
     }
 
-    h1 {
-      color: #e74c3c; /* Kırmızı */
-      margin-top: 0;
-    }
-
-    #question {
-      font-size: 24px;
+    .section h2 {
+      font-size: 3rem;
       margin-bottom: 20px;
-      color: #2980b9; /* Mavi */
+      animation: fadeInLeft 1s ease;
     }
 
-    #answer {
-      font-size: 18px;
-      padding: 10px;
-      width: 100px;
-      border: 2px solid #e74c3c; /* Kırmızı */
-      border-radius: 5px;
+    .section p {
+      font-size: 1.5rem;
+      animation: fadeInRight 1s ease;
     }
 
-    #submit-btn {
-      background-color: #e74c3c; /* Kırmızı */
+    .section img {
+      max-width: 80%;
+      height: auto;
+      margin-top: 20px;
+      animation: fadeInUp 1s ease;
+    }
+
+    /* Scroll to Top Button Styles */
+    #scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
       color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
+      padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
-      margin-top: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    #result {
-      font-size: 18px;
-      margin-top: 20px;
-      color: #2980b9; /* Mavi */
+    #scroll-to-top.show {
+      opacity: 1;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="game-container">
-    <h1>Çarpma Oyunu</h1>
-    <div id="question"></div>
-    <input type="number" id="answer" placeholder="Cevabı girin">
-    <button id="submit-btn">Gönder</button>
-    <div id="result"></div>
+
+ 
+
+ 
+
+  <script>
+    function loadPage(url) {
+      const pageFrame = document.getElementById('page-frame');
+      pageFrame.src = url;
+    }
+  </script>
+
+
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="#sinif----"> <a href="#" onclick="loadPage('https://etkinlikler.onrender.com')">TOPLAMA  OYUNU</a></a></li>
+        <li><a href="#sinif----"> <a href="#" onclick="loadPage('https://etkinlikler.onrender.com')">2leriEZBERLİYORUM</a></a></li>
+        <li><a href="#sinif----"> <a href="#" onclick="loadPage('https://etkinlikler.onrender.com')">ÇARPMA OYUNU</a></a></li>
+        <li><a href="#sinif----"> <a href="#" onclick="loadPage('https://etkinlikler.onrender.com')">DÖRT İŞLEM OYUNU</a></a></li>
+        <li><a href="#sinif----"> <a href="#" onclick="loadPage('https://etkinlikler.onrender.com')">EN YAKIN ONLUK </a></a></li>
+
+        <li><a href="#sinif-1">1.SINIF ETKİNKLERİ          </a></li>
+        <li><a href="#sinif-2">2.SINIF ETKİNKLERİ</a></li>
+        <!-- <li><a href="#sinif-3">3.SINIF ETKİNKLERİ</a></li>
+        <li><a href="#sinif-4">4.SINIF ETKİNKLERİ</a></li> -->
+      </ul>
+    </nav>
+  </div>
+
+  <div class="main-content">
+
+     <iframe width="100%" src="https://carpma-islemi-etkinligi.onrender.com" height="50%" id="page-frame" src="" frameborder="0">merhaba</iframe>
+
+    <section id="sinif-1" class="section">
+      <div id="page-container">
+    
+      </div>
+      
+      <h2 class="animate__animated animate__fadeInLeft">1.SINIF ETKİNLİKLERİ</h2>
+      <p class="animate__animated animate__fadeInRight">Burada 1.SINIF ETKİNKLERİ gösterebilirsiniz.</p>
+     <a href="" 
+      <img src="1-.jpg" alt="Resim 1" class="animate__animated animate__fadeInUp">
+    </section>
+
+    <section id="sinif-2" class="section">
+      <h2 class="animate__animated animate__fadeInLeft">2.SINIF ETKİNLİKLERİ</h2>
+      <p class="animate__animated animate__fadeInRight">Burada 2.SINIF ETKİNKLERİ gösterebilirsiniz.</p>
+      <p>  
+        <a href="https://carpma-islemi-etkinligi.onrender.com/" target="_blank">Çarpma İslemi Etkinligi/</a>
+      </p>
+
+
+      <img src="2-.jpg" alt="Resim 2" class="animate__animated animate__fadeInUp">
+    </section>
+
+    <!-- <section id="sinif-3" class="section">
+      <h2 class="animate__animated animate__fadeInLeft">3.SINIF ETKİNKLERİ</h2>
+      <p class="animate__animated animate__fadeInRight">Burada 3.SINIF ETKİNKLERİ yazılarınızı gösterebilirsiniz.</p>
+      <img src="3-.jpg" alt="Resim 3" class="animate__animated animate__fadeInUp">
+    </section>
+
+    <section id="sinif-4" class="section">
+      <h2 class="animate__animated animate__fadeInLeft">4.SINIF ETKİNKLERİ</h2>
+      <p class="animate__animated animate__fadeInRight">Burada 4.SINIF ETKİNKLERİ yazılarınızı gösterebilirsiniz.</p>
+      <img src="3-.jpg" alt="Resim 3" class="animate__animated animate__fadeInUp">
+    </section> -->
+  </div>
+
+  <div id="scroll-to-top">
+    <i class="fas fa-arrow-up"></i> Yukarı Git
   </div>
 
   <script>
-    const questionElement = document.getElementById('question');
-    const answerInput = document.getElementById('answer');
-    const submitBtn = document.getElementById('submit-btn');
-    const resultElement = document.getElementById('result');
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add your JavaScript functionality here
+      const sections = document.querySelectorAll('.section');
+      const scrollToTopButton = document.getElementById('scroll-to-top');
 
-    function generateQuestion() {
-      const num1 = Math.floor(Math.random() * 10) + 1;
-      const num2 = Math.floor(Math.random() * 10) + 1;
-      const correctAnswer = num1 * num2;
-      questionElement.textContent = `${num1} x ${num2} = ?`;
-      return correctAnswer;
-    }
+      window.addEventListener('scroll', function() {
+        sections.forEach(function(section, index) {
+          if (section.getBoundingClientRect().top <= window.innerHeight * 0.5 && section.getBoundingClientRect().bottom >= window.innerHeight * 0.5) {
+            document.querySelectorAll('.sidebar nav a')[index].classList.add('active');
+          } else {
+            document.querySelectorAll('.sidebar nav a')[index].classList.remove('active');
+          }
+        });
 
-    let correctAnswer = generateQuestion();
+        if (window.pageYOffset > 300) {
+          scrollToTopButton.classList.add('show');
+        } else {
+          scrollToTopButton.classList.remove('show');
+        }
+      });
 
-    submitBtn.addEventListener('click', () => {
-      const userAnswer = parseInt(answerInput.value);
-      if (userAnswer === correctAnswer) {
-        resultElement.textContent = '✨ Tebrikler, doğru cevap! ✨';
-        resultElement.style.color = '#2ecc71'; // Yeşil
-      } else {
-        resultElement.textContent = '😔 Üzgünüm, yanlış cevap.';
-        resultElement.style.color = '#e74c3c'; // Kırmızı
-      }
-      answerInput.value = '';
-      correctAnswer = generateQuestion();
+      scrollToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
     });
   </script>
-
-    
 </body>
 </html>

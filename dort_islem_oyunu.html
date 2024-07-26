@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dört İşlem Oyunu</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        .game-container {
+            text-align: center;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .option {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .drop-zone {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: 2px dashed #3498db;
+            border-radius: 5px;
+            min-width: 100px;
+            min-height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .scoreboard {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="question" id="question">Soru burada görünecek</div>
+        <div class="options" id="options">
+            <!-- Options will be generated dynamically -->
+        </div>
+        <div class="drop-zone" id="drop-zone">Cevabı buraya sürükleyin</div>
+        <div class="result" id="result"></div>
+        <div class="scoreboard" id="scoreboard">
+            Doğru: <span id="correct">0</span> Yanlış: <span id="incorrect">0</span> Puan: <span id="score">0</span>
+        </div>
+    </div>
+
+    <script>
+        let correctAnswer;
+        let correctCount = 0;
+        let incorrectCount = 0;
+        let score = 0;
+
+        function generateQuestion() {
+            let num1, num2, operation, questionText;
+
+            do {
+                num1 = Math.floor(Math.random() * 10) + 1;
+                num2 = Math.floor(Math.random() * 10) + 1;
+                const operations = ['+', '-', '*', '/'];
+                operation = operations[Math.floor(Math.random() * operations.length)];
+
+                switch (operation) {
+                    case '+':
+                        correctAnswer = num1 + num2;
+                        questionText = `${num1} + ${num2}`;
+                        break;
+                    case '-':
+                        correctAnswer = num1 - num2;
+                        questionText = `${num1} - ${num2}`;
+                        break;
+                    case '*':
+                        correctAnswer = num1 * num2;
+                        questionText = `${num1} * ${num2}`;
+                        break;
+                    case '/':
+                        correctAnswer = Math.floor(num1 / num2);
+                        questionText = `${num1} / ${num2}`;
+                        break;
+                }
+            } while (correctAnswer <= 0 || !Number.isInteger(correctAnswer));
+
+            document.getElementById('question').innerText = questionText;
+            document.getElementById('result').innerText = '';
+
+            generateOptions(correctAnswer);
+        }
+
+        function generateOptions(correctAnswer) {
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+
+            let options = [correctAnswer];
+            while (options.length < 4) {
+                let option = Math.floor(Math.random() * 20) + 1;
+                if (!options.includes(option)) {
+                    options.push(option);
+                }
+            }
+
+            options = options.sort(() => 0.5 - Math.random());
+
+            options.forEach(option => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.innerText = option;
+                optionElement.draggable = true;
+                optionElement.addEventListener('dragstart', dragStart);
+                optionsContainer.appendChild(optionElement);
+            });
+        }
+
+        function dragStart(event) {
+            event.dataTransfer.setData('text/plain', event.target.innerText);
+        }
+
+        function dragOver(event) {
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            const answer = event.dataTransfer.getData('text/plain');
+            checkAnswer(answer);
+        }
+
+        function checkAnswer(answer) {
+            const resultElement = document.getElementById('result');
+            const correctElement = document.getElementById('correct');
+            const incorrectElement = document.getElementById('incorrect');
+            const scoreElement = document.getElementById('score');
+
+            if (answer == correctAnswer) {
+                correctCount++;
+                score += 10;
+                resultElement.innerText = 'Doğru!';
+                resultElement.style.color = 'green';
+            } else {
+                incorrectCount++;
+                resultElement.innerText = `Yanlış! Doğru cevap: ${correctAnswer}`;
+                resultElement.style.color = 'red';
+            }
+
+            correctElement.innerText = correctCount;
+            incorrectElement.innerText = incorrectCount;
+            scoreElement.innerText = score;
+
+            if (score >= 100) {
+                alert('Tebrikler! Oyunu kazandınız.');
+                resetGame();
+            } else {
+                generateQuestion();
+            }
+        }
+
+        function resetGame() {
+            correctCount = 0;
+            incorrectCount = 0;
+            score = 0;
+
+            document.getElementById('correct').innerText = correctCount;
+            document.getElementById('incorrect').innerText = incorrectCount;
+            document.getElementById('score').innerText = score;
+
+            generateQuestion();
+        }
+
+        document.getElementById('drop-zone').addEventListener('dragover', dragOver);
+        document.getElementById('drop-zone').addEventListener('drop', drop);
+
+        // İlk soru oluşturuluyor
+        generateQuestion();
+    </script>
+</body>
+</html>

@@ -19,11 +19,11 @@
   <meta property="og:title" content="Matematik Çalışma Sayfası - Temel İşlemler">
   <meta property="og:description" content="Bu çalışma sayfasında temel matematik işlemlerini (toplama, çıkarma, çarpma, bölme) pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://etkinlikler.onrender.com/">
+  <meta property="og:url" content="https://example.com/matematik-calisma-sayfasi">
   <meta property="og:image" content="https://example.com/matematik-calisma-sayfasi-gorsel.jpg">
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://etkinlikler.onrender.com/">
+  <link rel="canonical" href="https://example.com/matematik-calisma-sayfasi">
 
 
   <!-- title: Sayfanın başlığını belirtir. 
@@ -97,7 +97,7 @@ viewport: Sayfanın mobil cihazlarda nasıl görüntüleneceğini ayarlar.
 </head>
 <body>
   <div class="game-container">
-    <h1>Çarpma Oyunu</h1>
+    <h1>Toplama Oyunu</h1>
     <div id="question"></div>
     <input type="number" id="answer" placeholder="Cevabı girin">
     <button id="submit-btn">Gönder</button>
@@ -113,8 +113,8 @@ viewport: Sayfanın mobil cihazlarda nasıl görüntüleneceğini ayarlar.
     function generateQuestion() {
       const num1 = Math.floor(Math.random() * 10) + 1;
       const num2 = Math.floor(Math.random() * 10) + 1;
-      const correctAnswer = num1 * num2;
-      questionElement.textContent = `${num1} x ${num2} = ?`;
+      const correctAnswer = num1 + num2;
+      questionElement.textContent = `${num1} + ${num2} = ?`;
       return correctAnswer;
     }
 

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>En Yakın Onluğa Yuvarlama Oyunu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    #game-container {
+      margin-top: 50px;
+    }
+
+    .option {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #f2f2f2;
+      cursor: pointer;
+    }
+
+    .option:hover {
+      background-color: #e6e6e6;
+    }
+
+    #restart-button {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>En Yakın Onluğa Yuvarlama Oyunu</h1>
+  <div id="game-container">
+    <h2> SAYI :<span id="random-number"></span></h2>
+    <div id="options-container"></div>
+    <p>Doğru Cevaplar: <span id="correct-answers">0</span></p>
+    <p>Yanlış Cevaplar: <span id="incorrect-answers">0</span></p>
+    <p>Puan: <span id="score">0</span></p>
+    <button id="restart-button">Yeniden Başla</button>
+  </div>
+
+  <script>
+    let correctAnswers = 0;
+    let incorrectAnswers = 0;
+    let score = 0;
+
+    function displayRandomNumber() {
+      const randomNumber = Math.floor(Math.random() * 90) + 10;
+      document.getElementById("random-number").textContent = randomNumber;
+      populateOptions(randomNumber);
+    }
+
+    function populateOptions(randomNumber) {
+      const optionsContainer = document.getElementById("options-container");
+      optionsContainer.innerHTML = "";
+
+      const nearestTen = Math.round(randomNumber / 10) * 10;
+      const options = [nearestTen - 20, nearestTen - 10, nearestTen, nearestTen + 10];
+      options.sort(() => Math.random() - 0.5);
+
+      options.forEach((option) => {
+        const optionElement = document.createElement("div");
+        optionElement.className = "option";
+        optionElement.textContent = option;
+        optionElement.addEventListener("click", () => checkAnswer(option));
+        optionsContainer.appendChild(optionElement);
+      });
+    }
+
+    function checkAnswer(selectedOption) {
+      const randomNumber = parseInt(document.getElementById("random-number").textContent);
+      const nearestTen = Math.round(randomNumber / 10) * 10;
+
+      if (selectedOption === nearestTen) {
+        correctAnswers++;
+        score += 10;
+        showMessage("Doğru Cevap!");
+      } else {
+        incorrectAnswers++;
+        showMessage("Yanlış Cevap!");
+      }
+
+      document.getElementById("correct-answers").textContent = correctAnswers;
+      document.getElementById("incorrect-answers").textContent = incorrectAnswers;
+      document.getElementById("score").textContent = score;
+
+      if (score >= 100) {
+        showMessage("Tebrikler, 100 Puana Ulaştınız!");
+        document.getElementById("restart-button").style.display = "block";
+      }
+
+      // Her cevap sonrası yeni bir sayı göster
+      displayRandomNumber();
+    }
+
+    function showMessage(message) {
+      alert(message);
+    }
+
+    document.getElementById("restart-button").addEventListener("click", () => {
+      correctAnswers = 0;
+      incorrectAnswers = 0;
+      score = 0;
+      document.getElementById("correct-answers").textContent = correctAnswers;
+      document.getElementById("incorrect-answers").textContent = incorrectAnswers;
+      document.getElementById("score").textContent = score;
+      document.getElementById("restart-button").style.display = "none";
+      displayRandomNumber();
+    });
+
+    displayRandomNumber();
+  </script>
+</body>
+</html>
