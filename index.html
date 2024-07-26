@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <title>Matematik Çalışma Sayfası - Temel İşlemler</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETKİNLİKLER SAYFASI</title>
   <meta name="description" content="Bu çalışma sayfasında temel matematik işlemlerini (toplama, çıkarma, çarpma, bölme) pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.">
   <meta name="keywords" content="matematik, temel işlemler, toplama, çıkarma, çarpma, bölme, çalışma sayfası, eğitim">
   <meta name="robots" content="index, follow">
@@ -19,235 +19,387 @@
   <meta property="og:url" content="https://etkinlikler.onrender.com/">
   <meta property="og:image" content="https://example.com/matematik-calisma-sayfasi-gorsel.jpg">
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://etkinlikler.onrender.com/">
-  
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resim Albümü, Profil ve Blog</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
-    /* Global Styles */
+    /* Genel Stiller */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
+      background-color: #f1f1f1;
     }
 
-    /* Sidebar Menu Styles */
-    .sidebar {
+    /* Header Stili */
+    header {
       background-color: #333;
       color: #fff;
       padding: 20px;
-      height: 100vh;
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 200px;
-      transition: transform 0.3s ease;
-    }
-
-    .sidebar nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .sidebar nav li {
-      margin-bottom: 20px;
-    }
-
-    .sidebar nav a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      padding: 10px;
-      border-radius: 5px;
-    }
-
-    .sidebar nav a:hover {
-      background-color: #555;
-    }
-
-    /* Main Content Styles */
-    .main-content {
-      flex-grow: 1;
-      padding: 40px;
-      margin-left: 200px;
-      transition: margin-left 0.3s ease;
-    }
-
-    .section {
-      scroll-snap-align: start;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       text-align: center;
     }
 
-    .section h2 {
-      font-size: 3rem;
+    header h1 {
+      margin: 0;
+    }
+
+    /* İçerik Alanı Stili */
+    .content {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .content .element {
+      background-color: #fff;
+      padding: 20px;
       margin-bottom: 20px;
-      animation: fadeInLeft 1s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+    
+    .con {
+      padding: 40px;
+      text-align: center;
     }
 
-    .section p {
-      font-size: 1.5rem;
-      animation: fadeInRight 1s ease;
+    .con .element {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      opacity:1;
+      transform: translateY(50px);
+      transition: opacity 0.5s, transform 0.5s;
     }
 
-    .section img {
-      max-width: 80%;
-      height: auto;
-      margin-top: 20px;
-      animation: fadeInUp 1s ease;
+    .content .element.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* Scroll to Top Button Styles */
-    #scroll-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+    /* Medya Sorguları */
+    @media (max-width: 768px) {
+      .con .element {
+        width: 100%;
+      }
+    /* Medya Sorguları */
+    @media (max-width: 768px) {
+      .content .element {
+        width: 100%;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .menu.show {
+        display: block;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .content .element {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .menu {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Animasyon Tanımlamaları */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Menü Stili */
+    .menu {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu li {
+      display: inline-block;
+      margin: 0 10px;
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    .menu li:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .menu li:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .menu li:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .menu li:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .menu a {
+      color: #333;
+      text-decoration: none;
+      padding: 10px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .menu a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .menu-toggle {
       background-color: #333;
       color: #fff;
-      padding: 10px 15px;
-      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
       cursor: pointer;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      animation: slideIn 0.5s ease-in-out;
     }
 
-    #scroll-to-top.show {
-      opacity: 1;
-    }
+/* buton  */
+/* Şeffaf Yuvarlak Buton Stili */
+.transparent-rounded-button {
+  background-color: rgba(255, 255, 255, 0.3); /* Yarı şeffaf beyaz */
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Yarı şeffaf beyaz kenarlık */
+  border-radius: 20px; /* Köşeleri yuvarlatır */
+  color: #ffffff; /* Beyaz yazı rengi */
+  cursor: pointer; /* Fare imleci değişir */
+  font-size: 16px;
+  padding: 10px 20px; /* İç boşluk */
+  text-decoration: none; /* Alt çizgiyi kaldırır */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Geçiş efektleri */
+}
 
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
+/* Buton Üzerine Gelindiğinde */
+.transparent-rounded-button:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* Daha az şeffaf beyaz */
+  border-color: #ffffff; /* Beyaz kenarlık */
+}
 
-      .sidebar {
-        position: static;
-        width: 100%;
-        height: auto;
-        padding: 10px 0;
-      }
+/* Buton Tıklandığında */
+.transparent-rounded-button:active {
+  background-color: rgba(255, 255, 255, 0.7); /* Daha az şeffaf beyaz */
+  border-color: #ffffff; /* Beyaz kenarlık */
+}
+/* buton */
 
-      .main-content {
-        margin-left: 0;
-        padding: 20px;
-      }
-    }
+
+
+    a {
+  color: #0077b6; /* Mavi renk */
+  text-decoration: none; /* Alt çizgiyi kaldırır */
+  transition: color 0.3s ease; /* Renk değişimi için geçiş süresi */
+}
+
+/* Link Üzerine Gelindiğinde */
+a:hover {
+  color: #005b8f; /* Daha koyu mavi renk */
+  text-decoration: underline; /* Alt çizgi ekler */
+}
+
+/* Tıklanmış Link */
+a:active {
+  color: #003d5e; /* En koyu mavi renk */
+}
+
+/* Ziyaret Edilmiş Link */
+a:visited {
+  color: #7a00ff; /* Mor renk */
+}
+
+/* Odaklanmış Link */
+a:focus {
+  outline: 2px solid #0077b6; /* Mavi renkte odak çizgisi */
+  box-shadow: 0 0 5px rgba(0, 119, 182, 0.5); /* Mavi gölge */
+}
   </style>
+
+  <style>
+  /* Link Stilleri */
+  .link-wrapper {
+    display: inline-block;
+    position: relative;
+    padding: 8px 16px;
+    border: 0px solid #0077b6;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  .link-wrapper::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background-color: rgba(0, 119, 182, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .link-wrapper:hover::before {
+    opacity: 1;
+    border-radius: 6px;
+  }
+
+  .link-wrapper a {
+    color: #0077b6;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+  }
+
+  .link-wrapper a:hover {
+    color: #008f26;
+    border-radius: 0px;
+  }
+
+  .link-wrapper a:active {
+    color: #0bcd22;
+  }
+
+  .link-wrapper a:visited {
+    color: #7a00ff;
+  }
+
+  .link-wrapper a:focus {
+    outline: none;
+  }
+</style>
+
+
 </head>
 <body>
+  <header>
+    <h1>ETKİNLİKLER SAYFASI </h1>
+  </header>
 
- 
-
- 
-
-  <script>
-    function loadPage(url) {
-      const pageFrame = document.getElementById('page-frame');
-      pageFrame.src = url;
-    }
-  </script>
-
-
-  <div class="sidebar">
-    <nav>
-      <p><a  href="#" onclick="loadPage('https://etkinlikler.onrender.com')">TOPLAMA  OYUNU</a></p>
-      <p><a  href="#" onclick="loadPage('https://etkinlikler.onrender.com')">2leriEZBERLİYORUM</a></p>
-      <p><a  href="#" onclick="loadPage('https://etkinlikler.onrender.com')">ÇARPMA OYUNU</a></p>
-      <p><a href="#" onclick="loadPage('https://etkinlikler.onrender.com')">DÖRT İŞLEM OYUNU</a></p>
-      <p><a  href="#" onclick="loadPage('https://etkinlikler.onrender.com')">EN YAKIN ONLUK </a></p>
-      <ul>
-     
-
-        <li><a href="#sinif-1">1.SINIF ETKİNKLERİ          </a></li>
-        <li><a href="#sinif-2">2.SINIF ETKİNKLERİ</a></li>
-        <!-- <li><a href="#sinif-3">3.SINIF ETKİNKLERİ</a></li>
-        <li><a href="#sinif-4">4.SINIF ETKİNKLERİ</a></li> -->
-      </ul>
-    </nav>
+   <div class="menu-toggle">
+    <i class="fas fa-bars"></i> Menu
   </div>
 
-  <div class="main-content">
+  <nav class="menu">
+    <li><a href="#">Ana Sayfa</a></li>
+   
+  </nav>
 
-     <iframe width="100%" src="https://carpma-islemi-etkinligi.onrender.com" height="50%" id="page-frame" src="" frameborder="0">merhaba</iframe>
+  
 
-    <section id="sinif-1" class="section">
-      <div id="page-container">
     
-      </div>
+</div>
+
+  <div class="content">
+    <div class="element">
+      <h2>   
+         <span class="link-wrapper">
+       <a href="https://etkinlikler.onrender.com" target="_blank">Ana Sayfa</a>
       
-      <h2 class="animate__animated animate__fadeInLeft">1.SINIF ETKİNLİKLERİ</h2>
-      <p class="animate__animated animate__fadeInRight">Burada 1.SINIF ETKİNKLERİ gösterebilirsiniz.</p>
-     <a href="" 
-      <img src="1-.jpg" alt="Resim 1" class="animate__animated animate__fadeInUp">
-    </section>
-
-    <section id="sinif-2" class="section">
-      <h2 class="animate__animated animate__fadeInLeft">2.SINIF ETKİNLİKLERİ</h2>
-      <p class="animate__animated animate__fadeInRight">Burada 2.SINIF ETKİNKLERİ gösterebilirsiniz.</p>
-      <p>  
-        <a href="https://carpma-islemi-etkinligi.onrender.com/" target="_blank">Çarpma İslemi Etkinligi/</a>
-      </p>
-
-
-      <img src="2-.jpg" alt="Resim 2" class="animate__animated animate__fadeInUp">
-    </section>
-
-    <!-- <section id="sinif-3" class="section">
-      <h2 class="animate__animated animate__fadeInLeft">3.SINIF ETKİNKLERİ</h2>
-      <p class="animate__animated animate__fadeInRight">Burada 3.SINIF ETKİNKLERİ yazılarınızı gösterebilirsiniz.</p>
-      <img src="3-.jpg" alt="Resim 3" class="animate__animated animate__fadeInUp">
-    </section>
-
-    <section id="sinif-4" class="section">
-      <h2 class="animate__animated animate__fadeInLeft">4.SINIF ETKİNKLERİ</h2>
-      <p class="animate__animated animate__fadeInRight">Burada 4.SINIF ETKİNKLERİ yazılarınızı gösterebilirsiniz.</p>
-      <img src="3-.jpg" alt="Resim 3" class="animate__animated animate__fadeInUp">
-    </section> -->
-  </div>
-
-  <div id="scroll-to-top">
-    <i class="fas fa-arrow-up"></i> Yukarı Git
+       </span> 
+      </h2>
+      <p>This is the first element on the page.</p>
+    </div>
+    <div class="element">
+      <h2>   
+         <span class="link-wrapper">
+       <a href="https://etkinlikler.onrender.com" target="_blank">Ana Sayfa</a>
+      </span> 
+      </h2>
+      <p>This is the second element on the page.</p>
+    </div>
+    <div class="element">
+      <h2>   
+         <span class="link-wrapper">
+       <a href="https://etkinlikler.onrender.com" target="_blank">Ana Sayfa</a>
+      </span> 
+      </h2>
+      <p>This is the third element on the page.</p>
+    </div>
+    <div class="element">
+      <h2>   
+         <span class="link-wrapper">
+       <a href="https://etkinlikler.onrender.com" target="_blank">Ana Sayfa</a>
+      </span> 
+      </h2>
+      <p>This is the fourth element on the page.</p>
+    </div>
+    <div class="element">
+      <h2>   
+         <span class="link-wrapper">
+       <a href="https://etkinlikler.onrender.com" target="_blank">Ana Sayfa</a>
+      </span> 
+      </h2>
+      <p>This is the fifth element on the page.</p>
+    </div>
+    <div class="element">
+      <h2>   
+         <span class="link-wrapper">
+       <a href="https://etkinlikler.onrender.com" target="_blank">Ana Sayfa</a>
+      </span> 
+      </h2>
+      <p>This is the sixth element on the page.</p>
+    </div>
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Add your JavaScript functionality here
-      const sections = document.querySelectorAll('.section');
-      const scrollToTopButton = document.getElementById('scroll-to-top');
+    // JavaScript ile ek hareket efektleri eklenebilir
+    const elements = document.querySelectorAll('.element');
 
-      window.addEventListener('scroll', function() {
-        sections.forEach(function(section, index) {
-          if (section.getBoundingClientRect().top <= window.innerHeight * 0.5 && section.getBoundingClientRect().bottom >= window.innerHeight * 0.5) {
-            document.querySelectorAll('.sidebar nav a')[index].classList.add('active');
-          } else {
-            document.querySelectorAll('.sidebar nav a')[index].classList.remove('active');
-          }
-        });
+    window.addEventListener('scroll', () => {
+      elements.forEach((element) => {
+        const top = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
 
-        if (window.pageYOffset > 300) {
-          scrollToTopButton.classList.add('show');
+        if (top < windowHeight * 0.8) {
+          element.classList.add('visible');
         } else {
-          scrollToTopButton.classList.remove('show');
+          element.classList.remove('visible');
         }
       });
+    });
 
-      scrollToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
+    // Menü açma/kapama işlevi
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('show');
     });
   </script>
 </body>
