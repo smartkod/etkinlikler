@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İletişim Sayfası</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    
+    header {
+      background-color: #3b5998; /* Facebook mavi rengi */
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #333;
+      transition: all 0.5s ease;
+    }
+    
+    nav a:hover {
+      transform: scale(1.2);
+      color: #4267B2;
+    }
+    
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.5s ease;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    .logo:hover {
+      transform: rotate(360deg) scale(1.2);
+    }
+    
+    main {
+      padding: 40px;
+    }
+    
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    input, textarea {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    button {
+      background-color: #4267B2; /* Facebook mavi rengi */
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #36507c;
+      transform: scale(1.1);
+    }
+    
+    footer {
+      background-color: #4267B2; /* Facebook mavi rengi */
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    
+    /* E-posta formu için CSS stilleri */
+    .email-form {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 5px;
+    }
+    
+    .email-form input, .email-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .email-form button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+   
+  </style>
+ 
+
+
+
+
+</head>
+<body>
+  <header>
+    <h1>İletişim Sayfası</h1>
+  </header>
+  
+  <nav>
+    <a href="https://tr-tr.facebook.com/gunluk.odevler">
+      <div class="logo">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/facebook.svg" " alt="Facebook" style="width: 40px; height: 40px;">
+      </div>
+    </a>
+    <a href="http://Instagram.com/gunlukodevler">
+      <div class="logo">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/instagram.svg" alt="Instagram" style="width: 40px; height: 40px;">
+      </div>
+    </a>
+    <a href="#">
+      <div class="logo">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/twitter.svg" alt="X" style="width: 40px; height: 40px;">
+      </div>
+    </a>
+  </nav>
+  
+ 
+  <nav>
+    <!-- Önceki kod blokları burada -->
+  </nav>
+  
+  <section class="email-form">
+    <h2>Bize Ulaşın</h2>
+    <form
+    action="https://formspree.io/f/mqazppdk"
+    method="POST"
+  >
+    <label>
+       email Adresiniz:
+      <input type="email" name="email">
+    </label>
+    <label>
+      Mesajınız:
+      <textarea name="message"></textarea>
+    </label>
+    <!-- your other form fields go here -->
+    <button type="submit" id="send-button">Gönder</button>
+  </form>
+
+  
+  </section>
+
+
+ 
+  
+  <script>
+    // E-posta gönderme işlemi için JavaScript kodu
+    const form = document.getElementById('email-form');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault(); // Varsayılan form gönderme işlemini engelle
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // E-posta gönderme servisine veri gönder
+      sendEmail(name, email, message);
+    });
+
+    async function sendEmail(name, email, message) {
+
+      try {
+        
+        // E-posta gönderme servisini çağır (örneğin, Formspree.io)
+        const response = await fetch('https://formspree.io/f/your-form-id', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name, email, message })
+        });
+
+        if (response.ok) {
+          alert('E-posta başarıyla gönderildi!');
+          form.reset(); // Formu temizle
+        } else {
+          alert('E-posta gönderme işlemi başarısız oldu. Lütfen daha sonra tekrar deneyin.');
+        }
+      } catch (error) {
+        alert('Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+        console.error('E-posta gönderme hatası:', error);
+      }
+      
+    }
+  </script>
+  
+
+
+    <!-- captcha kod blokları burada -->
+ 
+
+    <script>
+        const captchaImage = document.getElementById('captcha-image');
+        const form = document.getElementById('email-form');
+        const submitBtn = document.getElementById('submit-btn');
+        let captchaValue = generateCaptcha();
+        captchaImage.textContent = captchaValue;
+    
+        function generateCaptcha() {
+          const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          let captcha = '';
+          for (let i = 0; i < 6; i++) {
+            captcha += characters[Math.floor(Math.random() * characters.length)];
+          }
+          return captcha;
+        }
+    
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const userInput = document.getElementById('captcha-input').value;
+    
+          if (userInput.toLowerCase() === captchaValue.toLowerCase()) {
+            alert('E-posta başarıyla gönderildi!');
+            form.reset();
+            captchaValue = generateCaptcha();
+            captchaImage.textContent = captchaValue;
+          } else {
+            alert('CAPTCHA hatalı. Lütfen tekrar deneyin.');
+            captchaValue = generateCaptcha();
+            captchaImage.textContent = captchaValue;
+          }
+        });
+      </script>
+  
+ 
+  
+
+
+</body>
+
+
+
+</html>
