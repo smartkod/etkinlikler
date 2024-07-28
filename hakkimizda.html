@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ETKİNLİKLER SAYFASI</title>
   <meta name="description" content="Bu çalışma sayfasında temel matematik işlemlerini (toplama, çıkarma, çarpma, bölme) pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.">
   <meta name="keywords" content="matematik, temel işlemler, toplama, çıkarma, çarpma, bölme, çalışma sayfası, eğitim">
   <meta name="robots" content="index, follow">
@@ -20,8 +19,7 @@
   <meta property="og:image" content="https://example.com/matematik-calisma-sayfasi-gorsel.jpg">
 
 
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>Modern Single Page Design</title>
   <style>
     /* Genel Stiller */
     body {
@@ -33,13 +31,11 @@
 
     /* Header Stili */
     header {
-      background-color: #3b5998;
+      background-color: #4909de;
       color: #fff;
       padding: 20px;
       text-align: center;
     }
-
- 
 
     header h1 {
       margin: 0;
@@ -60,32 +56,12 @@
       transform: translateY(50px);
       transition: opacity 0.5s, transform 0.5s;
     }
-    
-    .con {
-      padding: 40px;
-      text-align: center;
-    }
-
-    .con .element {
-      background-color: #fff;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      opacity:1;
-      transform: translateY(50px);
-      transition: opacity 0.5s, transform 0.5s;
-    }
 
     .content .element.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Medya Sorguları */
-    @media (max-width: 768px) {
-      .con .element {
-        width: 100%;
-      }
     /* Medya Sorguları */
     @media (max-width: 768px) {
       .content .element {
@@ -194,68 +170,39 @@
       cursor: pointer;
       animation: slideIn 0.5s ease-in-out;
     }
+  </style>
+</head>
 
-/* buton  */
-/* Şeffaf Yuvarlak Buton Stili */
-.transparent-rounded-button {
-  background-color: rgba(255, 255, 255, 0.3); /* Yarı şeffaf beyaz */
-  border: 2px solid rgba(255, 255, 255, 0.5); /* Yarı şeffaf beyaz kenarlık */
-  border-radius: 20px; /* Köşeleri yuvarlatır */
-  color: #ffffff; /* Beyaz yazı rengi */
-  cursor: pointer; /* Fare imleci değişir */
-  font-size: 16px;
-  padding: 10px 20px; /* İç boşluk */
-  text-decoration: none; /* Alt çizgiyi kaldırır */
-  transition: background-color 0.3s ease, border-color 0.3s ease; /* Geçiş efektleri */
-}
+<style>
 
-/* Buton Üzerine Gelindiğinde */
-.transparent-rounded-button:hover {
-  background-color: rgba(255, 255, 255, 0.5); /* Daha az şeffaf beyaz */
-  border-color: #ffffff; /* Beyaz kenarlık */
-}
-
-/* Buton Tıklandığında */
-.transparent-rounded-button:active {
-  background-color: rgba(255, 255, 255, 0.7); /* Daha az şeffaf beyaz */
-  border-color: #ffffff; /* Beyaz kenarlık */
-}
-/* buton */
-
-
-
-    a {
-  color: #0077b6; /* Mavi renk */
-  text-decoration: none; /* Alt çizgiyi kaldırır */
-  transition: color 0.3s ease; /* Renk değişimi için geçiş süresi */
-}
-
-/* Link Üzerine Gelindiğinde */
-a:hover {
-  color: #005b8f; /* Daha koyu mavi renk */
-  text-decoration: underline; /* Alt çizgi ekler */
-}
-
-/* Tıklanmış Link */
-a:active {
-  color: #003d5e; /* En koyu mavi renk */
-}
-
-/* Ziyaret Edilmiş Link */
-a:visited {
-  color: #7a00ff; /* Mor renk */
-}
-
-/* Odaklanmış Link */
-a:focus {
-  outline: 2px solid #0077b6; /* Mavi renkte odak çizgisi */
-  box-shadow: 0 0 5px rgba(0, 119, 182, 0.5); /* Mavi gölge */
-}
+  .container1 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .item {
+    flex: 1 0 33%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  @media (max-width: 767px) {
+    .item {
+      flex: 0 0 100%;
+    }
+  }
+  
+  
+  .item {
+    background-color: #f1f1f1;
+  
+  }
   </style>
 
-  <style>
+
+<style>
   /* Link Stilleri */
-  .link-wrapper {
+  .link-w{
     display: inline-block;
     position: relative;
     padding: 8px 16px;
@@ -264,46 +211,44 @@ a:focus {
     transition: background-color 0.3s ease;
   }
 
-  .link-wrapper::before {
+  .link-w::before {
     content: "";
     position: absolute;
-    top: -4px;
+     top: -4px;
     left: -4px;
     right: -4px;
-    bottom: -4px;
-    background-color: rgba(0, 119, 182, 0.1);
+    bottom: -4px; 
+       background-color: rgba(0, 119, 182, 0.1);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
 
-  .link-wrapper:hover::before {
+  .link-w:hover::before {
     opacity: 1;
     border-radius: 6px;
   }
 
-  .link-wrapper a {
+  .link-w a {
     color: #0077b6;
     text-decoration: none;
-    position: relative;
-    z-index: 1;
+    /* position: relative;
+    z-index: 1; */
   }
 
-  .link-wrapper a:hover {
+  .link-w a:hover {
     color: #008f26;
     border-radius: 0px;
   }
 
-  .link-wrapper a:active {
+  .link-w a:active {
     color: #0bcd22;
   }
 
-  .link-wrapper a:visited {
+  .link-w a:visited {
     color: #7a00ff;
   }
-  .link-wrapper li {
-  text-align: left;
-}
-  .link-wrapper a:focus {
+
+  .link-w a:focus {
     outline: none;
   }
   /* AŞAĞI OK */
@@ -316,9 +261,9 @@ a:focus {
       color: #333;
     }
 </style>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+<!-- 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"> 
   <style>
     .link-container {
       display: flex;
@@ -356,114 +301,182 @@ a:focus {
       75% { color: #9b59b6; }
       100% { color: #e74c3c; }
     }
+
+    span.b {
+  display: inline; /* the default for span */
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  border: 1px solid blue;  
+  background-color: yellow; 
+}
+
+
+  /* AŞAĞI OK */
+  .arrow-container {
+      margin-top: 20px;
+    }
+    .arrow {
+      font-weight: bold;
+      font-size: 30px;
+      color: #333;
+    }
   </style>
-
-</head>
-
-
 
 <body>
   <header>
-    <h1>HAKKIMIZDA</h1>
+    <h1>Hakkımızda</h1>
   </header>
-<!--
-   <div class="menu-toggle">
+
+  <!-- <div class="menu-toggle">
     <i class="fas fa-bars"></i> Menu
   </div>
-
-  <nav class="menu">
-    <li><a href="#">Ana Sayfa</a></li>
-   
-  </nav>
--->
+ 
+  <nav class="menu" >
   
- <div class="con">
-    
+    <span class="link-w" > <li><a href="#">Home</a></li></span>
+    <span class="link-w" > <li><a href="#">About</a></li></span>
+    <span class="link-w" >    <li><a href="#">Services</a></li></span>
+    <span class="link-w" >  <li><a href="#">Contact</a></li></span>
+ 
+  </nav> -->
+
+  <div class="content">
+
     <div class="element">
-      
-         <span class="link-wrapper"> 
-           
-  
-      <p> <h2>  Merhaba, </h2> </p> <br>
 
-      <h2>  Oyunlarla eğlenceli etkinlikleri yapma amacınızı kısaca özetlemek isterim: </h2>
-        <li>  Öğrencilerin gelişimini desteklemek </li>
-   
+        <p> <h2>  Merhaba, </h2> </p> 
+         <h2> Etkinlikleri yapma amacınızı kısaca özetlemek isterim: </h2>
+<span style="text-align: left;"> 
+       
+          <li>  Öğrencilerin gelişimini desteklemek </li>
      
-    <li>  Öğrenmeyi eğlenceli hale getirmek.  </li>
-    <li> Öğrencilerin motivasyonunu  arttırmak. </li>
-      <li>   Okul başarısını yükseltmek. </li>
-    
-          </ul>  
-      </span> 
-      <br>
- <span class="arrow" >&#8595;</span>
+       
+      <li>  Öğrenmeyi eğlenceli hale getirmek.  </li>
+      <li> Öğrencilerin motivasyonunu  arttırmak. </li>
+        <li>   Okul başarısını yükseltmek. </li>
+      
+            </ul>  
+        </span> 
+        <br>
+   <span class="arrow" >&#8595;</span>
+
+
+      </p>
+      <p>Sosyal medya hesaplarımızı beğenmeyi ihmal etmeyin.</p>
     </div>
+
+
+    <div class="element">
+      <h2>instagram hesapları</h2>
+      <div class="container1">
+
+
+         <div class="item">
+                 <a href="https://www.instagram.com/gunlukodevler/like" target="_blank">
+              <span class="link-w" style="border:1px solid">  <i class="bx bxs-heart"></i> Beğen </span>
+            </a>          
+          
+          </div>
+         
+         
+          <div class="item">
+           
+            <a href="https://www.instagram.com/gunlukodevler/subscribe" target="_blank">
+              <span class="link-w" style="border:1px solid">  <i class="bx bxs-user-plus"></i> Abone Ol </span>
+            </a>
+            
+            </div>
+        
+
+            <div class="item">
+            
+                <a href="https://www.instagram.com/gunlukodevler/" target="_blank">
+                  <span class="link-w" style="border:1px solid">    <i class="bx bxs-home"></i> gunlukodevler</span>
+                </a>
+                
+              </div>
+      </div>
+      
+      <p>Sizi sosyal medya hesaplarımızda görmekten mutluluk duyarız.</p>
+    </div>
+
+
+
+    <div class="element">
+         <h2> SORU GÖRÜŞ VE ÖNERİLERİNİZ İÇİN </h2>
+      <div class="item">
+        <span class="link-w" style="border:1px solid">
+          <a href="https://etkinlikler.onrender.com/iletisim.html" target=new>
+            <span class="link-w" style="border:1px solid"> İLETİŞİM SAYFASI</span>
+          </a>
+                </span>
+        </div>
+        
+   
+      <p>İletişim sayfasından görüş öneri ve sorularınızı gönderebilirsiniz!</p>
+    </div>
+
+
+    <div class="element">
+      <h2>Facebook hesapları </h2>
+      <div class="container1">
+         
+        
+        <div class="item">
+          <a href="https://www.Facebook.com/gunlukodevler/like" target="_blank">
+       <span class="link-w" style="border:1px solid">  <i class="bx bxs-heart"></i> Beğen </span>
+     </a>          
+   
+   </div>
+  
+  
+   <div class="item">
     
+     <a href="https://www.Facebook.com/gunlukodevler/subscribe" target="_blank">
+       <span class="link-w" style="border:1px solid">  <i class="bx bxs-user-plus"></i> Abone Ol </span>
+     </a>
+     
+     </div>
+ 
+
+     <div class="item">
+     
+         <a href="https://www.Facebook.com/gunlukodevler/" target="_blank">
+           <span class="link-w" style="border:1px solid">    <i class="bx bxs-home"></i> gunlukodevler</span>
+         </a>
+         
+       </div>
 </div>
 
+<p> Facebook'da  bizi takip edin. </p>
+</div>
 
-
-
- <div class="content"> 
-      
-    
-  <div class="element">
-    
-    
-      <span class="link-wrapper">  
-      <h2>   <div class="link-container">
-        <a href="http://Instagram.com/gunlukodevler" target=new>
-          Instagram.com/gunlukodevler/ </a>
-
-          <a href="https://www.instagram.com/gunlukodevler/like" target="_blank">
-      <i class="bx bxs-heart"></i> Beğen
-    </a>
-    <a href="https://www.instagram.com/gunlukodevler/subscribe" target="_blank">
-      <i class="bx bxs-user-plus"></i> Abone Ol
-    </a>
-    <a href="https://www.instagram.com/gunlukodevler/" target="_blank">
-      <i class="bx bxs-home"></i> gunlukodevler
-    </a>
-  </div> </h2>
-  </span>
-      <p>Burada instagram/gunlukodevler destek olabilirsiiniz.</p>
     </div>
 
 
+<!-- 
+    <div class="element">
+      <h2>Element 3</h2>
+      <p>Bizi sosyal medyada takip edin! </p>
+    </div>
 
     <div class="element">
-      <h2>   
-         <span class="link-wrapper">
-
-         
-          <div class="link-container">
-            <a href="https://tr-tr.facebook.com/gunluk.odevler/" target=new>
-              facebook.com/gunlukodevler</a>
-          
-    <a href="https://tr-tr.facebook.com/gunluk.odevler/like" target="_blank">
-      <i class="bi bi-heart"></i> Beğen
-    </a>
-    <a href="https://tr-tr.facebook.com/gunluk.odevler/subscribe" target="_blank">
-      <i class="bi bi-bell"></i> Abone Ol
-    </a>
-    <a href="https://tr-tr.facebook.com/gunluk.odevler/" target="_blank">
-      <i class="bi bi-house"></i> gunlukodevler
-    </a>
-  </div>
-      </span> 
-      </h2>
-      <p> Burada facebook/gunlukodevler destek olabilirsiiniz.</p>
+      <h2>Element 4</h2>
+      <p>Sizi sosyal medya hesaplarımızda görmekten mutluluk duyarız. </p>
     </div>
 
-  
+    <div class="element">
+      <h2>Element 5</h2>
+      <p>Sosyal medya hesaplarımızı beğenerek destek olun. </p>
+    </div>
 
+    <div class="element">
+      <h2>Element 6</h2>
+      <p>Sosyal medya hesaplarımıza göz atın ve etkileşimde bulunun. </p>
+    </div> -->
 
-   
-
-
-
-    
+  </div>
 
   <script>
     // JavaScript ile ek hareket efektleri eklenebilir
@@ -482,15 +495,12 @@ a:focus {
       });
     });
 
-    // Menü açma/kapama işlevi
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
 
-    menuToggle.addEventListener('click', () => {
-      menu.classList.toggle('show');
-    });
-  </script>
+
+
+ </script>
+    
+
+ 
 </body>
-
-
 </html>
