@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7M2RTSYBE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q7M2RTSYBE');
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+
+  <meta name="robots" content="index, follow">
+
+  <meta name="copyright" content="© 2023 Matematik Çalışma Sayfası. Tüm hakları saklıdır.">
+  <meta name="revisit-after" content="7 days">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Meta Tags -->
+
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://etkinlikler.onrender.com/">
+  <meta property="og:image" content="https://example.com/matematik-calisma-sayfasi-gorsel.jpg">
+
+
+  
+    <meta name="description" content="Çarpım tablosunu öğrenmek için eğlenceli bir etkinlik. Çocuklar için interaktif kartlar ile çarpma işlemlerini keşfedin.">
+    <meta name="keywords" content="çarpım tablosu, matematik, eğitim, çocuklar, interaktif, öğrenme">
+    <meta name="author" content="Eğitimci Adı">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="ÇARPIM TABLOSUNU ÖĞRENİYORUM">
+    <meta property="og:description" content="Eğlenceli bir etkinlikle çarpım tablosunu öğrenin!">
+    <meta property="og:image" content="link-to-your-image.jpg">
+    <meta property="og:url" content="https://etkinlikler.onrender.com/etkinlik">
+
+
+
+  <title> ÇARPIM TABLOSUNU ÖĞRENİYORUM </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kart Oyunu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            width: 100px;
+            height: 150px;
+            border: 1px solid #000;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            position: relative;
+            user-select: none;
+            perspective: 1000px;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            border: 1px solid #000;
+        }
+        .card-back {
+            background-color: rgba(255, 255, 255, 1);
+            transform: rotateY(180deg);
+        }
+
+        select {
+            font-size: 19px; /* Yazı boyutunu büyüt */
+            padding: 8px; /* İç boşluk ekle */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ÇARPMA ÖĞRENİYORUM </h1>
+    <select id="numberSelect" onchange="updateCards()">
+        <option value="">Bir sayı seçin</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+
+    <div id="cardContainer" class="card-container"></div>
+
+    <script>
+        function updateCards() {
+            const selectedNumber = parseInt(document.getElementById('numberSelect').value);
+            const cardContainer = document.getElementById('cardContainer');
+            cardContainer.innerHTML = ''; // Kartları temizle
+
+            if (selectedNumber) {
+                for (let i = 1; i <= 10; i++) {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.onclick = () => flipCard(card);
+
+                    const cardInner = document.createElement('div');
+                    cardInner.className = 'card-inner';
+
+                    const frontDiv = document.createElement('div');
+                    frontDiv.className = 'card-front';
+                    frontDiv.innerText = `${selectedNumber} × ${i}`;
+
+                    const resultDiv = document.createElement('div');
+                    resultDiv.className = 'card-back';
+                    resultDiv.innerText = selectedNumber * i;
+
+                    cardInner.appendChild(frontDiv);
+                    cardInner.appendChild(resultDiv);
+                    card.appendChild(cardInner);
+                    cardContainer.appendChild(card);
+                }
+            }
+        }
+
+        function flipCard(card) {
+            const cardInner = card.querySelector('.card-inner');
+            cardInner.style.transform = cardInner.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+        }
+    </script>
+
+</body>
+</html>
