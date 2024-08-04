@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    
+     <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7M2RTSYBE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q7M2RTSYBE');
+</script>
+
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETKİNLİKLER SAYFASI</title>
+  <meta name="description" content="Bu çalışma sayfasında temel matematik işlemlerini (toplama, çıkarma, çarpma, bölme) pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.">
+  <meta name="keywords" content="matematik, temel işlemler, toplama, çıkarma, çarpma, bölme, çalışma sayfası, eğitim">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Matematik Öğretmeni, Eğitim Platformu">
+  <meta name="copyright" content="© 2023 Matematik Çalışma Sayfası. Tüm hakları saklıdır.">
+  <meta name="revisit-after" content="7 days">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Matematik Çalışma Sayfası - Temel İşlemler">
+  <meta property="og:description" content="Bu çalışma sayfasında temel matematik işlemlerini (toplama, çıkarma, çarpma, bölme) pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://etkinlikler.onrender.com/">
+  <meta property="og:image" content="https://example.com/matematik-calisma-sayfasi-gorsel.jpg">
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematik Macerası</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+        #question {
+            font-size: 24px;
+            margin: 20px;
+        }
+        input {
+            font-size: 18px;
+            padding: 5px;
+            width: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        #result, #score, #timer {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Matematik Macerası</h1>
+    <div id="timer">Süre: <span id="time">10</span> saniye</div>
+    <div id="score">Puan: <span id="points">0</span></div>
+    <div id="question"></div>
+    <input type="number" id="answer" placeholder="Cevap">
+    <button onclick="checkAnswer()">Cevabı Kontrol Et</button>
+    <div id="result"></div>
+
+    <script>
+        let num1, num2, operation;
+        let score = 0;
+        let timeLeft = 20;
+        let timer;
+
+        function startTimer() {
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('time').innerText = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    alert('Süre doldu! Oyun bitti.');
+                    resetGame();
+                }
+            }, 1000);
+        }
+
+        function resetGame() {
+            score = 0;
+            timeLeft = 10;
+            document.getElementById('points').innerText = score;
+            document.getElementById('time').innerText = timeLeft;
+            generateQuestion();
+            startTimer();
+        }
+
+        function generateQuestion() {
+            num1 = Math.floor(Math.random() * 10) + 1;
+            num2 = Math.floor(Math.random() * 10) + 1;
+            const operations = ['add', 'subtract', 'multiply', 'divide'];
+            operation = operations[Math.floor(Math.random() * operations.length)];
+
+            // Pozitif sonuç sağlamak için kontroller
+            switch (operation) {
+                case 'add':
+                    document.getElementById('question').innerText = `${num1} + ${num2} = ?`;
+                    break;
+                case 'subtract':
+                    if (num1 >= num2) {
+                        document.getElementById('question').innerText = `${num1} - ${num2} = ?`;
+                    } else {
+                        generateQuestion(); // Tekrar sor
+                    }
+                    break;
+                case 'multiply':
+                    document.getElementById('question').innerText = `${num1} x ${num2} = ?`;
+                    break;
+                case 'divide':
+                    if (num1 !== 0) {
+                        document.getElementById('question').innerText = `${num1 * num2} ÷ ${num1} = ?`;
+                    } else {
+                        generateQuestion(); // Tekrar sor
+                    }
+                    break;
+            }
+        }
+
+        function checkAnswer() {
+            const answer = parseInt(document.getElementById('answer').value);
+            let correctAnswer;
+
+            switch (operation) {
+                case 'add':
+                    correctAnswer = num1 + num2;
+                    break;
+                case 'subtract':
+                    correctAnswer = num1 - num2;
+                    break;
+                case 'multiply':
+                    correctAnswer = num1 * num2;
+                    break;
+                case 'divide':
+                    correctAnswer = num1 * num2 / num1;
+                    break;
+            }
+
+            if (answer === correctAnswer) {
+                score++;
+                document.getElementById('result').innerText = "Doğru! Harika iş çıkardın!";
+            } else {
+                document.getElementById('result').innerText = `Yanlış! Doğru cevap: ${correctAnswer}`;
+            }
+            document.getElementById('points').innerText = score;
+            document.getElementById('answer').value = '';
+            generateQuestion();
+        }
+
+        // Oyunu başlat
+        resetGame();
+    </script>
+
+</body>
+</html>
