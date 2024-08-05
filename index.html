@@ -352,16 +352,37 @@ a:focus {
     color:firebrick;
 </nav-->
   
- 
+ <div>
+  <button onclick="shareLink('https://etkinlikler.onrender.com/')">
+  <img src="https://iconspng.com/images/share-icon/share-icon.jpg" alt="Paylaş" width="32" height="32">
+</button>
+
+<script>
+  function shareLink(url) {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Check this out',
+        url: url
+      })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing:', error));
+    } else {
+      console.log('Web Share API not supported.');
+    }
+  }
+</script>
+
+ </div>
   
- <!--div class="con">
+ <div class="con">
     
     <div class="element">
-      
+
+     
  <span class="arrow" >&#8595;</span>
     </div>
     
-</div-->
+</div>
 
    
      <div class="content">
