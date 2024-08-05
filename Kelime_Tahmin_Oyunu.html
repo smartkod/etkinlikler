@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="keywords" content="yazım hataları, benzer kelimeler, kelime oyunu, kelime bulmaca, yazım yanılgıları, dil oyunları">
+    <meta name="description" content="Bu sayfa, yazımı sıklıkla karıştırılan kelimeler üzerine eğlenceli bir kelime oyunu içermektedir. 
+    Kullanıcılar kelimelerin doğru yazılışlarını öğrenirken, kelime bulmacalarını çözerek zihinsel egzersiz yapabilirler.">
+
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Matematik Öğretmeni, Eğitim Platformu">
+    <meta name="copyright" content="© 2023 Matematik Çalışma Sayfası. Tüm hakları saklıdır.">
+    <meta name="revisit-after" content="7 days">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="https://etkinlikler.onrender.com/">
+    <meta property="og:image" content="https://example.com/matematik-calisma-sayfasi-gorsel.jpg">
+    <title>Kelime Tahmin Oyunu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+        }
+        #word-container {
+            font-size: 24px;
+            margin: 20px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        #yeni {
+            margin-top: 20px;
+            font-size: 20px;
+            align-items: center;
+            vertical-align:middle;
+        }
+        input {
+            font-size: 18px;
+            width: 100px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+     
+    </style>
+</head>
+<body>
+
+    <h1>Kelime Tahmin Oyunu</h1>
+    <div id="word-container"></div>
+    <input type="text" id="letter-input" maxlength="1" placeholder="Harf">
+    <button onclick="guessLetter()">Tahmin Et</button>
+    
+    <div id="message"></div>
+
+    <div id="attempts">Kalan Deneme: <span id="attempts-count"></span></div>
+    <div id="yeni"><button id="new-word-button" onclick="startNewGame()" style="display: none;">Yeni Kelime</button></div>
+
+    <script>
+        const words = [
+        "javascript",
+         "kelime", "oyun", "geliştirme", "tahmin", 
+        "	acayip	"	,
+"alüminyum"	,
+"antrenör",
+"antrenman",
+"apartman",
+"aperitif",
+"arkeolog",
+"arnavutciğeri",
+"asteğmen",
+"astsubay",
+"aşçı",
+"atölye",
+"barkod",
+"bayağı",
+"bayi",
+"bazen",
+"bijuteri",
+"bisküvi",
+"boa yılanı",
+"cambaz",
+"çiğ köfte",
+"darbuka",
+"değinmek",
+"dekorasyon",
+"dermatoloji",
+"dershane",
+"dinozor",
+"diyalog",
+"diyafon",
+"doküman",
+"dublör",
+"eczane",
+"egzoz",
+"elektrik",
+"entelektüel",
+"erozyon",
+"eşantiyon",
+"eşkıya",
+"eşofman",
+"etajer",
+"fasulye",
+"fileto",
+"fiyat",
+"floresan",
+"flüt",
+"gammaz",
+"gangster",
+"gardırop",
+"gravür",
+"gramofon",
+"hafakan",
+"hafriyat",
+"hak etmek",
+"harikulade",
+"hangar",
+"hastane",
+"herhangi",
+"herkes",
+"hoparlör",
+"Hristiyan",
+"hükûmet",
+"ızdırap",
+"illüzyon",
+"inisiyatif",
+"iddia",
+"jübile",
+"kalemtıraş",
+"kapüşon",
+"karnabahar",
+"karakter",
+"katalog",
+"kılavuz",
+"kibrit",
+"klasisizm",
+"koleksiyon",
+"kolektif",
+"kolesterol",
+"komodin",
+"kompartıman",
+"konservatuvar",
+"koreografi",
+"kravat",
+"kulübe",
+"kurdele",
+"laboratuvar",
+"lavabo",
+"literatür",
+"lügat",
+"lütuf",
+"lüzum",
+"maalesef",
+"mahcup",
+"mahzun",
+"matbaa",
+"makine",
+"maydanoz",
+"meğerki",
+"menü",
+"menisküs",
+"meteor",
+"meteoroloji",
+"meyve",
+"motosiklet",
+"mozaik",
+"muayene",
+"muayenehane",
+"muhatap",
+"mukavva",
+"muvaffak",
+"müdahale",
+"müdafaa",
+"müracaat",
+"müsaade",
+"müspet",
+"müsvedde",
+"müteahhit ",
+"natürmort",
+"natürel",
+"nispet",
+"okuryazar",
+"oratoryo",
+"orijinal",
+"orkestra",
+"ortaokul",
+"otopark",
+"öğütmek",
+"övmek",
+"palyaço",
+"panorama",
+"pantolon",
+"pardösü",
+"pasaport",
+"pastane",
+"perakende",
+"perhiz",
+"poğaça",
+"portmanto",
+"postane",
+"profesör",
+"prova",
+"program",
+"propaganda",
+"psikiyatr",
+"psikiyatri",
+"rastlantı",
+"repertuvar",
+"restoran",
+"rezervasyon",
+"rölanti",
+"sağanak ",
+"sanayi",
+"sandviç",
+"sarımsak",
+"satranç",
+"seremoni ",
+"sezaryen",
+"sıfat-fiil",
+"sırtüstü",
+"silahşor ",
+"silüet",
+"spagetti",
+"spontane",
+"sprey",
+"stajyer ",
+"stadyum",
+"stat",
+"stepne",
+"stüdyo",
+"suikast",
+"sürpriz",
+"süveter",
+"şarj",
+"şefaat",
+"şoför",
+"şofben",
+"şov",
+"şövalye",
+"taahhüt",
+"taassup",
+"tabildot",
+"tasdik",
+"teessüf",
+"teferruat",
+"teneffüs",
+"tespih",
+"teyp",
+"tırabzan",
+"tıraş ",
+"tirbuşon",
+"tişört",
+"tribün ",
+"türbülans",
+"uluslararası",
+"ültimatom",
+"üniforma",
+"üslup",
+"üstat",
+"üsteğmen",
+"vaat",
+"vadetmek",
+"vahamet",
+"vejetaryen",
+"vicdan",
+"virtüöz",
+"virüs",
+"voleybol",
+"vukuat",
+"vücut",
+"yağlı boya ",
+"yalnız",
+"YANLIŞ",
+"yayımlamak",
+"yükseköğrenim",
+"yükseköğretim",
+"zanaat",
+"zarafet",
+"zatürre",
+"zürafa",
+
+        
+        "merhaba"];
+        let selectedWord, guessedLetters, attempts;
+
+        function startNewGame() {
+            selectedWord = words[Math.floor(Math.random() * words.length)];
+            guessedLetters = [];
+            attempts = 9;
+            document.getElementById('message').innerText = "";
+            document.getElementById('new-word-button').style.display = "none";
+            document.querySelector('button').disabled = false; // Tahmin butonunu aktif et
+            displayWord();
+        }
+
+        function displayWord() {
+            const display = selectedWord.split('').map(letter => 
+                guessedLetters.includes(letter) ? letter : '_'
+            ).join(' ');
+            document.getElementById('word-container').innerText = display;
+            document.getElementById('attempts-count').innerText = attempts;
+        }
+
+        function guessLetter() {
+            const input = document.getElementById('letter-input');
+            const letter = input.value.toLowerCase();
+
+            if (guessedLetters.includes(letter) || letter === '') {
+                document.getElementById('message').innerText = "Bu harfi zaten tahmin ettiniz.";
+                input.value = '';
+                return;
+            }
+
+            guessedLetters.push(letter);
+
+            if (!selectedWord.includes(letter)) {
+                attempts--;
+            }
+
+            if (attempts === 0) {
+                document.getElementById('message').innerText = `Kaybettiniz! Doğru kelime: ${selectedWord}`;
+                document.querySelector('button').disabled = true; // Tahmin butonunu devre dışı bırak
+                document.getElementById('new-word-button').style.display = "block"; // Yeni kelime butonunu göster
+            } else if (selectedWord.split('').every(letter => guessedLetters.includes(letter))) {
+                document.getElementById('message').innerText = "Tebrikler! Kelimeyi doğru tahmin ettiniz.";
+                document.querySelector('button').disabled = true; // Tahmin butonunu devre dışı bırak
+                document.getElementById('new-word-button').style.display = "block"; // Yeni kelime butonunu göster
+            }
+
+            displayWord();
+            input.value = '';
+        }
+
+        // Oyunu başlat
+        startNewGame();
+    </script>
+
+</body>
+</html>
