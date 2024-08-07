@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="description" content="Tam, yarım ve çeyrek saatleri öğrenmek için interaktif test. Saat okuma becerilerinizi geliştirin ve zaman kavramınızı pekiştirin.">
+<meta name="keywords" content="saat, tam saat, yarım saat, çeyrek saat, saat okuma testi, zaman öğrenme, eğitim, ilkokul, interaktif test">
+<meta name="author" content="Eğitim Uzmanı">
+
+  <title>Saat Testi</title>
+  <style>
+    .clock-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .analog-clock {
+      width: 300px;
+      height: 300px;
+      border: 2px solid black;
+      position: relative;
+      border-radius: 50%;
+    }
+    .analog-clock .hour, .analog-clock .minute {
+      position: absolute;
+      background-color: black;
+      border-radius: 2px;
+      transform-origin: bottom center;
+    }
+    .analog-clock .hour {
+      width: 8px;
+      height: 80px;
+      top: 70px;
+      left: 146px;
+    }
+    .analog-clock .minute {
+      width: 5px;
+      height: 100px;
+      top: 50px;
+      left: 147px;
+    }
+    .analog-clock .number {
+      position: absolute;
+      font-size: 20px;
+      font-weight: bold;
+      transform: translate(-50%, -50%);
+    }
+    .test-container {
+      margin-top: 20px;
+   
+           
+    }
+    .test-question {
+    
+
+
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .test-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .test-options label {
+      font-size: 16px;
+     
+    }
+    .result {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+
+    }
+  </style>
+</head>
+<body style="text-align: center;">
+  <h1>Saat Testi</h1>
+
+  <div class="clock-container" >
+    <div class="analog-clock">
+      <div class="number" style="top: 30px; left: 150px;">12</div>
+      <div class="number" style="top: 280px; left: 150px;">6</div>
+      <div class="number" style="top: 150px; left: 270px;">3</div>
+      <div class="number" style="top: 150px; left: 20px;">9</div>
+      <div class="number" style="top: 50px; left: 220px;">1</div>
+      <div class="number" style="top: 100px; left: 250px;">2</div>
+      <div class="number" style="top: 90px; left: 40px;">10</div>
+      <div class="number" style="top: 50px; left: 90px;">11</div>
+      <div class="number" style="top: 250px; left: 200px;">5</div>
+      <div class="number" style="top: 250px; left: 80px;">7</div>
+      <div class="number" style="top: 200px; left: 250px;">4</div>
+      <div class="number" style="top: 200px; left: 40px;">8</div>
+      <div class="hour"></div>
+      <div class="minute"></div>
+    </div>
+  </div>
+
+ 
+  <div class="test-question" id="question"></div>
+
+  <div class="test-container">
+    <div class="test-options" id="options"></div>
+    <br>
+    <button onclick="checkAnswer()">Cevapla</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    let correctAnswer;
+
+    function updateAnalogClock(hours, minutes) {
+      const hourDegree = (hours * 30) + (minutes * 0.5);
+      const minuteDegree = minutes * 6;
+
+      document.querySelector('.hour').style.transform = `rotate(${hourDegree}deg)`;
+      document.querySelector('.minute').style.transform = `rotate(${minuteDegree}deg)`;
+    }
+
+    function generateNewQuestion() {
+      const options = ['00', '15', '30', '45']; // Dakika seçenekleri
+      const hours = Math.floor(Math.random() * 12); // 0-11 saat arası
+      const minutes = options[Math.floor(Math.random() * options.length)]; // Rastgele dakika seçimi
+      correctAnswer = `${hours}:${minutes}`;
+
+      updateAnalogClock(hours, parseInt(minutes));
+      document.getElementById('question').textContent = 'Saat kaçtır?';
+
+      const optionList = generateOptions(hours, minutes);
+      displayOptions(optionList);
+      document.getElementById('result').textContent = '';
+    }
+
+    function generateOptions(hours, minutes) {
+      const options = [correctAnswer];
+      while (options.length < 4) {
+        const wrongHours = Math.floor(Math.random() * 12);
+        const wrongMinutes = ['00', '15', '30', '45'][Math.floor(Math.random() * 4)];
+        const wrongAnswer = `${wrongHours}:${wrongMinutes}`;
+        if (!options.includes(wrongAnswer)) {
+          options.push(wrongAnswer);
+        }
+      }
+      return shuffleArray(options);
+    }
+
+    function displayOptions(options) {
+      const optionsContainer = document.getElementById('options');
+      optionsContainer.innerHTML = '';
+      options.forEach((option, index) => {
+        optionsContainer.innerHTML += `<label><input type="radio" name="answer" value="${index + 1}"> ${option}</label>`;
+      });
+    }
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function checkAnswer() {
+      const selectedOption = document.querySelector('input[name="answer"]:checked');
+      if (selectedOption) {
+        const selectedValue = parseInt(selectedOption.value);
+        const correctIndex = Array.from(document.getElementById('options').children).findIndex(option => option.textContent.trim() === correctAnswer);
+
+        if (selectedValue === correctIndex + 1) {
+          document.getElementById('result').textContent = 'Doğru!';
+        } else {
+          document.getElementById('result').textContent = `Yanlış. Doğru cevap ${correctAnswer}.`;
+        }
+      } else {
+        document.getElementById('result').textContent = 'Lütfen bir seçenek seçin.';
+      }
+    }
+
+    // İlk soru oluşturma
+    generateNewQuestion();
+  </script>
+  <br>
+ <button onclick="generateNewQuestion()">Yeni Soru</button>
+</body>
+</html>
