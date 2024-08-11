@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+       <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7M2RTSYBE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q7M2RTSYBE');
+</script>
+ <!-- Google tag (gtag.js)  BİTTİ -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <title>Görgü Kuralları - Sosyal Davranış ve Etik</title>
+  
+  <meta name="description" content="Görgü kuralları, sosyal ortamlarda uygun davranış ve etik kurallarını öğrenin. Aile, iş ve arkadaş çevresinde nasıl davranmalısınız?">
+  
+  <meta name="keywords" content="yemekte görgü kuralları,görgü kuralları, sosyal davranış, etik, aile, iş, arkadaş, davranış kuralları">
+  
+  <meta name="author" content="Your Name">
+  
+  <meta property="og:title" content="Görgü Kuralları - Sosyal Davranış ve Etik">
+  <meta property="og:description" content="Görgü kuralları hakkında bilgi edinin. Sosyal ortamlarda nasıl davranmanız gerektiğini öğrenin.">
+  <meta property="og:image" content="URL_TO_IMAGE">
+  
+  <meta property="og:url" content="https://etkinlikler.onrender.com/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Görgü Kuralları - Sosyal Davranış ve Etik">
+  <meta name="twitter:description" content="Görgü kurallarıyla ilgili her şeyi keşfedin. Uygun davranışları öğrenin.">
+  <meta name="twitter:image" content="URL_TO_IMAGE">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .game-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .ust-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+    }
+
+
+    .rule {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .actions svg {
+      width: 80px;
+      height: 80px;
+      margin: 0 10px;
+      cursor: pointer;
+      transition: transform 0.3s, filter 0.3s;
+    }
+
+    .result {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .score {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .score .correct {
+      color: green;
+      font-weight: bold;
+    }
+
+    .score .wrong {
+      color: red;
+      font-weight: bold;
+    }
+
+    .score .total {
+      color: blue;
+      font-weight: bold;
+    }
+
+    .final-message {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+    }
+
+    .buttons button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 0 10px;
+    }
+
+    .buttons button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const rules = [
+        { question: "Yemeğini güzelce bitirmek", correct: true },
+        { question: "Yemeğine küçük parçalar almak", correct: true },
+        { question: "Yemeğini sessizce yemek", correct: true },
+        { question: "Yemek sırasında telefonunu kullanmak", correct: false },
+        { question: "Yemek sırasında ayağını masanın altına uzatmak", correct: false },
+        { question: "Ağzında lokma varken konuşmak", correct: false }
+      ];
+
+      let correctAnswers = 0;
+      let wrongAnswers = 0;
+      let totalScore = 0;
+
+      function showRandomRule() {
+        if (rules.length === 0) {
+          endGame();
+          return;
+        }
+
+        const ruleIndex = Math.floor(Math.random() * rules.length);
+        const ruleElement = document.querySelector('.rule');
+        ruleElement.textContent = rules[ruleIndex].question;
+
+        const likeImage = document.querySelector('.like');
+        const dislikeImage = document.querySelector('.dislike');
+
+        likeImage.onclick = function() {
+          handleAnswer(rules[ruleIndex].correct);
+          rules.splice(ruleIndex, 1); // Soruyu sil
+        };
+
+        dislikeImage.onclick = function() {
+          handleAnswer(!rules[ruleIndex].correct);
+          rules.splice(ruleIndex, 1); // Soruyu sil
+        };
+      }
+
+      function handleAnswer(isCorrect) {
+        const resultElement = document.querySelector('.result');
+        const correctElement = document.querySelector('.correct');
+        const wrongElement = document.querySelector('.wrong');
+        const totalElement = document.querySelector('.total');
+
+        if (isCorrect) {
+          correctAnswers++;
+          totalScore += 10;
+          resultElement.textContent = "Doğru! +10 Puan";
+          resultElement.style.color = "green";
+        } else {
+          wrongAnswers++;
+          totalScore -= 10;
+          resultElement.textContent = "Yanlış! -10 Puan";
+          resultElement.style.color = "red";
+        }
+
+        correctElement.textContent = correctAnswers;
+        wrongElement.textContent = wrongAnswers;
+        totalElement.textContent = totalScore;
+
+        resultElement.style.display = "block";
+        setTimeout(function() {
+          resultElement.style.display = "none";
+          showRandomRule(); // Yeni soru göster
+        }, 2000);
+      }
+
+      function endGame() {
+        const finalMessage = document.querySelector('.final-message');
+        finalMessage.textContent = totalScore >= 0 ? "Tebrikler, kazandınız!" : "Üzgünüm, kaybettiniz.";
+      }
+
+      const newGameButton = document.querySelector('.new-game');
+      newGameButton.addEventListener('click', function() {
+        correctAnswers = 0;
+        wrongAnswers = 0;
+        totalScore = 0;
+        document.querySelector('.correct').textContent = "0";
+        document.querySelector('.wrong').textContent = "0";
+        document.querySelector('.total').textContent = "0";
+        document.querySelector('.final-message').textContent = ""; // Mesajı temizle
+        showRandomRule();
+      });
+
+      showRandomRule();
+    });
+  </script>
+
+<style>
+  .ust-container {
+ max-width: 800px;
+ margin: 0 auto;
+ padding: 20px;
+ background-color: white;
+ border-radius: 10px;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ margin-bottom: 10px;
+}
+</style>
+
+<style>
+.button {
+   font-family: Arial, Helvetica, sans-serif;
+         display: inline-block;
+ position: relative;
+ padding: 10px 20px;
+ background-color: #eff1f2;
+ color: #2645f7;
+ text-decoration: none;
+ border-radius: 5px;
+ transition: background-color 0.3s ease;
+ font-size: x-large;
+}
+
+.button:hover {
+ background-color: #c1e1f1;
+}
+
+/* .button svg {
+ width: 32px;
+ height: 32px;
+ vertical-align: left;
+ margin-right: 5px;
+} */
+</style>
+
+</head>
+<body>
+
+<script>
+function shareLink(url) {
+if (navigator.share) {
+ navigator.share({
+   title: 'Paylaş',
+   url: url
+ })
+   .then(() => console.log('Başarılı paylaşım'))
+   .catch((error) => console.log('Error sharing:', error));
+} else {
+ console.log('Web Paylaşım API si desteklenmiyor.');
+}
+}
+</script>
+
+<!-- ust-container  BAŞLADI-->
+
+<div class="ust-container">  
+
+
+<a href="https://etkinlikler.onrender.com/ " target="_blank"  class="button">
+   
+   <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+     <g id="icomoon-ignore"></g>
+     <path d="M16 2.672l-5.331 5.331v-2.133h-4.265v6.398l-3.755 3.755 0.754 0.754 12.597-12.597 12.597 12.597 0.754-0.754-13.351-13.351zM7.47 6.937h2.132v2.132l-2.133 2.133v-4.265z" fill="#000000"></path>
+     <path d="M6.404 16.533v12.795h7.464v-7.464h4.265v7.464h7.464v-12.795l-9.596-9.596-9.596 9.596zM24.53 28.262h-5.331v-7.464h-6.398v7.464h-5.331v-11.287l8.53-8.53 8.53 8.53v11.287z" fill="#000000"></path>
+   </svg>
+   Ana Sayfa <A/>
+
+
+<button class="button onclick="shareLink('https://etkinlikler.onrender.com/')">
+<svg width="32px" height="32px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.734 15.8974L19.22 12.1374C19.3971 11.9927 19.4998 11.7761 19.4998 11.5474C19.4998 11.3187 19.3971 11.1022 19.22 10.9574L14.734 7.19743C14.4947 6.9929 14.1598 6.94275 13.8711 7.06826C13.5824 7.19377 13.3906 7.47295 13.377 7.78743V9.27043C7.079 8.17943 5.5 13.8154 5.5 16.9974C6.961 14.5734 10.747 10.1794 13.377 13.8154V15.3024C13.3888 15.6178 13.5799 15.8987 13.8689 16.0254C14.158 16.1521 14.494 16.1024 14.734 15.8974Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>Paylaş
+
+<!--svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <path d="M9 12C9 13.3807 7.88071 14.5 6.5 14.5C5.11929 14.5 4 13.3807 4 12C4 10.6193 5.11929 9.5 6.5 9.5C7.88071 9.5 9 10.6193 9 12Z" stroke="#1C274C" stroke-width="1.5"/>
+ <path d="M14 6.5L9 10" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+ <path d="M14 17.5L9 14" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+ <path d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z" stroke="#1C274C" stroke-width="1.5"/>
+ <path d="M19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5Z" stroke="#1C274C" stroke-width="1.5"/>
+</svg-->
+
+</button>
+
+
+</div>  
+
+<!-- ust-container  BİTTİ-->
+ 
+    
+ 
+
+  <div class="game-container">
+    <h1>Görgü Kuralları Oyunu   </h1> 
+    <div class="rule">Görgü Kuralları Oyunu</div>
+
+    <div class="actions">
+      <svg class="like" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="green"/></svg>
+     
+      <svg class="dislike"  fill="#ea1f1f" height="123px" width="123px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 208.666 208.666" xml:space="preserve" stroke="#ea1f1f">
+
+        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+        
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <g id="SVGRepo_iconCarrier"> <g> <path d="M54.715,24.957c-0.544,0.357-1.162,0.598-1.806,0.696l-28.871,4.403c-2.228,0.341-3.956,2.257-3.956,4.511v79.825 c0,1.204,33.353,20.624,43.171,30.142c12.427,12.053,21.31,34.681,33.983,54.373c4.405,6.845,10.201,9.759,15.584,9.759 c10.103,0,18.831-10.273,14.493-24.104c-4.018-12.804-8.195-24.237-13.934-34.529c-4.672-8.376,1.399-18.7,10.989-18.7h48.991 c18.852,0,18.321-26.312,8.552-34.01c-1.676-1.32-2.182-3.682-1.175-5.563c3.519-6.572,2.86-20.571-6.054-25.363 c-2.15-1.156-3.165-3.74-2.108-5.941c3.784-7.878,3.233-24.126-8.71-27.307c-2.242-0.598-3.699-2.703-3.405-5.006 c0.909-7.13-0.509-20.86-22.856-26.447C133.112,0.573,128.281,0,123.136,0C104.047,0.001,80.683,7.903,54.715,24.957z"/> </g> </g>
+        
+        </svg>
+   
+    </div>
+    <div class="result"></div>
+    <div class="score">
+      Doğru Cevap: <span class="correct">0</span>
+      <br>
+      Yanlış Cevap: <span class="wrong">0</span>
+      <br>
+      Toplam Puan: <span class="total" style="font-size:xx-large;">0</span>
+    </div>
+    <div class="final-message"></div>
+    <div class="buttons">
+      <button class="new-game">Yeni Oyun</button>
+    </div>
+  </div>
+</body>
+</html>
