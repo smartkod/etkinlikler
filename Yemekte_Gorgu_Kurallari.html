@@ -203,7 +203,14 @@
       function endGame() {
         const finalMessage = document.querySelector('.final-message');
         finalMessage.textContent = totalScore >= 0 ? "Tebrikler, kazandınız!" : "Üzgünüm, kaybettiniz.";
-             showRandomRule();
+                 correctAnswers = 0;
+        wrongAnswers = 0;
+        totalScore = 0;
+        document.querySelector('.correct').textContent = "0";
+        document.querySelector('.wrong').textContent = "0";
+        document.querySelector('.total').textContent = "0";
+        document.querySelector('.final-message').textContent = ""; // Mesajı temizle
+        showRandomRule();
       }
 
       const newGameButton = document.querySelector('.new-game');
