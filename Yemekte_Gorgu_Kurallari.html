@@ -203,7 +203,11 @@
       function endGame() {
         const finalMessage = document.querySelector('.final-message');
         finalMessage.textContent = totalScore >= 0 ? "Tebrikler, kazandınız!" : "Üzgünüm, kaybettiniz.";
-                 correctAnswers = 0;
+       
+      }
+
+            function newGame() {
+       correctAnswers = 0;
         wrongAnswers = 0;
         totalScore = 0;
         document.querySelector('.correct').textContent = "0";
@@ -211,6 +215,7 @@
         document.querySelector('.total').textContent = "0";
         document.querySelector('.final-message').textContent = ""; // Mesajı temizle
         showRandomRule();
+       
       }
 
       const newGameButton = document.querySelector('.new-game');
@@ -227,6 +232,8 @@
 
       showRandomRule();
     });
+
+         
   </script>
 
 <style>
@@ -351,7 +358,7 @@ if (navigator.share) {
     </div>
     <div class="final-message"></div>
     <div class="buttons">
-      <button class="new-game">Yeni Oyun</button>
+      <button class="new-game" onclick="newGame()">Yeni Oyun</button>
     </div>
   </div>
 </body>
