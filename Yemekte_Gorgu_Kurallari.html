@@ -213,6 +213,13 @@ function endGame() {
   // Yeni oyun başlatma fonksiyonunu yeniden tanımla
   function startNewGame() {
     // Yeni oyun başlatma kodunu buraya yazın
+
+           correctAnswers = 0;
+        wrongAnswers = 0;
+        totalScore = 0;
+        updateScoreDisplay();
+        document.querySelector('.final-message').textContent = ""; // Mesajı temizle
+        showRandomRule();
   }
 
   const newGameButton = document.querySelector('#new-game-button');
@@ -381,7 +388,7 @@ if (navigator.share) {
     <div class="final-message"></div>
     <div class="buttons">
       <button class="new-game" onclick="newGame()">Yeni Oyun </button>
- <button class="new-game-button" id="new-game-button" onclick="startNewGame()">New Game </button>
+ <button class="new-game-button" id="new-game-button" onclick="startNewGame()">NewGame </button>
            
     </div>
   </div>
