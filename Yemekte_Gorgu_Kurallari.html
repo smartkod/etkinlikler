@@ -206,12 +206,15 @@
        
       }
 */
-
-           function endGame() {
+function endGame() {
   const finalMessage = document.querySelector('.final-message');
   finalMessage.textContent = totalScore >= 0 ? "Tebrikler, kazandınız!" : "Üzgünüm, kaybettiniz.";
 
-  // Yeni oyun butonunu yeniden tanımla
+  // Yeni oyun başlatma fonksiyonunu yeniden tanımla
+  function startNewGame() {
+    // Yeni oyun başlatma kodunu buraya yazın
+  }
+
   const newGameButton = document.querySelector('#new-game-button');
   newGameButton.addEventListener('click', startNewGame);
 }
@@ -378,7 +381,7 @@ if (navigator.share) {
     <div class="final-message"></div>
     <div class="buttons">
       <button class="new-game" onclick="newGame()">Yeni Oyun </button>
- <button class="new-game-button" id="new-game-button" onclick="startNewGame()">tNewGame </button>
+ <button class="new-game-button" id="new-game-button" onclick="startNewGame()">New Game </button>
            
     </div>
   </div>
