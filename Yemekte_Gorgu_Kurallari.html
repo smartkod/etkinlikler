@@ -199,13 +199,23 @@
           showRandomRule(); // Yeni soru göster
         }, 2000);
       }
-
+/*
       function endGame() {
         const finalMessage = document.querySelector('.final-message');
         finalMessage.textContent = totalScore >= 0 ? "Tebrikler, kazandınız!" : "Üzgünüm, kaybettiniz.";
        
       }
+*/
 
+           function endGame() {
+  const finalMessage = document.querySelector('.final-message');
+  finalMessage.textContent = totalScore >= 0 ? "Tebrikler, kazandınız!" : "Üzgünüm, kaybettiniz.";
+
+  // Yeni oyun butonunu yeniden tanımla
+  const newGameButton = document.querySelector('#new-game-button');
+  newGameButton.addEventListener('click', startNewGame);
+}
+           
  function newGame() {
         correctAnswers = 0;
         wrongAnswers = 0;
@@ -368,6 +378,8 @@ if (navigator.share) {
     <div class="final-message"></div>
     <div class="buttons">
       <button class="new-game" onclick="newGame()">Yeni Oyun </button>
+ <button class="startNewGame" onclick="startNewGame()">startNewGame </button>
+           
     </div>
   </div>
 </body>
