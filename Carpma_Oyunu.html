@@ -111,9 +111,96 @@ viewport: Sayfanın mobil cihazlarda nasıl görüntüleneceğini ayarlar.
   
 
    
+ <style>
+       .ust-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
+    }
+ </style>
+
+<style>
+    .button {
+        font-family: Arial, Helvetica, sans-serif;
+              display: inline-block;
+      position: relative;
+      padding: 10px 20px;
+      background-color: #eff1f2;
+      color: #2645f7;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      font-size: x-large;
+    }
+    
+    .button:hover {
+      background-color: #c1e1f1;
+    }
+    
+    /* .button svg {
+      width: 32px;
+      height: 32px;
+      vertical-align: left;
+      margin-right: 5px;
+    } */
+  </style>
+
 </head>
 <body>
 
+<script>
+  function shareLink(url) {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Paylaş',
+        url: url
+      })
+        .then(() => console.log('Başarılı paylaşım'))
+        .catch((error) => console.log('Error sharing:', error));
+    } else {
+      console.log('Web Paylaşım API si desteklenmiyor.');
+    }
+  }
+</script>
+
+   <!-- ust-container  BAŞLADI-->
+
+<div class="ust-container">  
+    
+  
+    <a href="https://etkinlikler.onrender.com/ " target="_blank"  class="button">
+        
+        <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="icomoon-ignore"></g>
+          <path d="M16 2.672l-5.331 5.331v-2.133h-4.265v6.398l-3.755 3.755 0.754 0.754 12.597-12.597 12.597 12.597 0.754-0.754-13.351-13.351zM7.47 6.937h2.132v2.132l-2.133 2.133v-4.265z" fill="#000000"></path>
+          <path d="M6.404 16.533v12.795h7.464v-7.464h4.265v7.464h7.464v-12.795l-9.596-9.596-9.596 9.596zM24.53 28.262h-5.331v-7.464h-6.398v7.464h-5.331v-11.287l8.53-8.53 8.53 8.53v11.287z" fill="#000000"></path>
+        </svg>
+        Ana Sayfa <A/>
+
+
+<button class="button onclick="shareLink('https://etkinlikler.onrender.com/')">
+<svg width="32px" height="32px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.734 15.8974L19.22 12.1374C19.3971 11.9927 19.4998 11.7761 19.4998 11.5474C19.4998 11.3187 19.3971 11.1022 19.22 10.9574L14.734 7.19743C14.4947 6.9929 14.1598 6.94275 13.8711 7.06826C13.5824 7.19377 13.3906 7.47295 13.377 7.78743V9.27043C7.079 8.17943 5.5 13.8154 5.5 16.9974C6.961 14.5734 10.747 10.1794 13.377 13.8154V15.3024C13.3888 15.6178 13.5799 15.8987 13.8689 16.0254C14.158 16.1521 14.494 16.1024 14.734 15.8974Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>Paylaş
+ 
+  <!--svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 12C9 13.3807 7.88071 14.5 6.5 14.5C5.11929 14.5 4 13.3807 4 12C4 10.6193 5.11929 9.5 6.5 9.5C7.88071 9.5 9 10.6193 9 12Z" stroke="#1C274C" stroke-width="1.5"/>
+      <path d="M14 6.5L9 10" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M14 17.5L9 14" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z" stroke="#1C274C" stroke-width="1.5"/>
+      <path d="M19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5Z" stroke="#1C274C" stroke-width="1.5"/>
+</svg-->
+ 
+</button>
+
+ 
+</div>  
+
+<!-- ust-container  BİTTİ-->
 
 
 
