@@ -203,6 +203,7 @@
       function endGame() {
         const finalMessage = document.querySelector('.final-message');
         finalMessage.textContent = totalScore >= 0 ? "Tebrikler, kazandınız!" : "Üzgünüm, kaybettiniz.";
+             showRandomRule();
       }
 
       const newGameButton = document.querySelector('.new-game');
