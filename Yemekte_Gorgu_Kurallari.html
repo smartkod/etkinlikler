@@ -206,17 +206,26 @@
        
       }
 
-            function newGame() {
-       correctAnswers = 0;
+ function newGame() {
+        correctAnswers = 0;
         wrongAnswers = 0;
         totalScore = 0;
-        document.querySelector('.correct').textContent = "0";
-        document.querySelector('.wrong').textContent = "0";
-        document.querySelector('.total').textContent = "0";
+        updateScoreDisplay();
         document.querySelector('.final-message').textContent = ""; // Mesajı temizle
         showRandomRule();
-       
       }
+
+      function updateScoreDisplay() {
+        document.querySelector('.correct').textContent = correctAnswers;
+        document.querySelector('.wrong').textContent = wrongAnswers;
+        document.querySelector('.total').textContent = totalScore;
+      }
+
+      const newGameButton = document.querySelector('.new-game');
+      newGameButton.addEventListener('click', newGame);
+
+      showRandomRule();
+    });
 
       const newGameButton = document.querySelector('.new-game');
       newGameButton.addEventListener('click', function() {
