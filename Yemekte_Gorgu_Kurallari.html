@@ -106,43 +106,198 @@
       display: none;
     }
   </style>
-</style>
-
-<style>
-.button {
-   font-family: Arial, Helvetica, sans-serif;
-         display: inline-block;
- position: relative;
- padding: 10px 20px;
- background-color: #eff1f2;
- color: #2645f7;
- text-decoration: none;
- border-radius: 5px;
- transition: background-color 0.3s ease;
- font-size: x-large;
-}
-
-.button:hover {
- background-color: #c1e1f1;
-}
 
 
 
-.game-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Matematik Öğretmeni, Eğitim Platformu">
+    <meta name="copyright" content="© 2023 Matematik Çalışma Sayfası. Tüm hakları saklıdır.">
+    <meta name="revisit-after" content="7 days">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="https://etkinlikler.onrender.com/">
+    <meta property="og:image" content="https://example.com/matematik-calisma-sayfasi-gorsel.jpg">
+    <title>Kelime Tahmin Oyunu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+        }
+        #word-container {
+            font-size: 24px;
+            margin: 20px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        #yeni {
+            margin-top: 20px;
+            font-size: 20px;
+            align-items: center;
+            vertical-align:middle;
+        }
+        input {
+            font-size: 18px;
+            width: 100px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+     
+    </style>
+
+
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7M2RTSYBE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q7M2RTSYBE');
+</script>
+
+
+
+
+  <style>
+    /* Genel Stiller */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
-</style>
+    /* Reklam Banner Alanı */
+    .ad-banner {
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Topbar (Sosyal Medya Butonları) */
+    .topbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .topbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    /* Navbar (Ana Sayfa, Hakkımızda, İletişim) */
+    .navbar {
+      background-color: #4CAF50;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    /* Oyun Alanı */
+    .game-container {
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #question {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .correct {
+      color: #2ecc71;
+    }
+
+    .incorrect {
+      color: #e74c3c;
+    }
+
+    #score-container {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    /* Responsive Tasarım */
+    @media (max-width: 768px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+        
+      }
+
+
+      
+      .navbar a {
+        padding: 10px 20px;
+        margin: 5px 0;
+        border:#532ecc solid 2px;
+        border: none;
+      }
+    }
+  </style>
+
 
 </head>
 <body>
 
-        <!-- <div class="ad-banner">
+  <!-- <div class="ad-banner">
     <img src="ad-banner.jpg" alt="Reklam Alanı">
   </div>
 
@@ -151,7 +306,8 @@
     <a href="#"><i class="fab fa-twitter"></i></a>
     <a href="#"><i class="fab fa-instagram"></i></a>
   </div> -->
- <div class="navbar">
+
+  <div class="navbar">
     <a href="https://etkinlikler.onrender.com/">
     <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="icomoon-ignore"></g>
@@ -192,7 +348,10 @@ function shareLink(url) {
 }
 </script>
   </div>
+ 
+<div class="game-container">
 
+      
 <h1>Görgü Kuralları Oyunu   </h1>
 
   <!-- game-container BAŞLAT-->
