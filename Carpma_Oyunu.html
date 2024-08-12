@@ -173,6 +173,20 @@
   </style>
 
 
+<script>
+function shareLink(url) {
+ if (navigator.share) {
+   navigator.share({
+     title: 'Paylaş',
+     url: url
+   })
+     .then(() => console.log('Başarılı paylaşım'))
+     .catch((error) => console.log('Error sharing:', error));
+ } else {
+   console.log('Web Paylaşım API si desteklenmiyor.');
+ }
+}
+</script>
 </head>
 <body>
 
@@ -203,20 +217,6 @@
   </div>
 
 
-<script>
-function shareLink(url) {
- if (navigator.share) {
-   navigator.share({
-     title: 'Paylaş',
-     url: url
-   })
-     .then(() => console.log('Başarılı paylaşım'))
-     .catch((error) => console.log('Error sharing:', error));
- } else {
-   console.log('Web Paylaşım API si desteklenmiyor.');
- }
-}
-</script>
 
 <div class="game-container">
   <h1>Çarpma Oyunu</h1>
