@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 
-  <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7M2RTSYBE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -14,23 +14,32 @@
 
 
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Çarpma Oyunu</title>
 
 
-  <title>Matematik Çalışma Sayfası - Temel İşlemler</title>
-  <meta name="description" content="Bu çalışma sayfasında temel matematik işlemlerini (toplama, çıkarma, çarpma, bölme) pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.">
-  <meta name="keywords" content="matematik, temel işlemler, toplama, çıkarma, çarpma, bölme, çalışma sayfası, eğitim">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Matematik Öğretmeni, Eğitim Platformu">
-  <meta name="copyright" content="© 2023 Matematik Çalışma Sayfası. Tüm hakları saklıdır.">
-  <meta name="revisit-after" content="7 days">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çarpma Oyunu</title>
+    <meta name="description" content="Kullanıcının cevaplarına göre puan kazandığı bir çarpma oyunu. Sonuçlar ekranda gösteriliyor.">
+    <meta name="keywords" content="çarpma, oyun, matematik, eğitim, puan sistemi, hız ölçümü">
+    <meta name="author" content="zafersozen, zafersozen@gmail.com">
+    <meta name="copyright" content="Anthropic">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="tr">
+    <meta name="geography" content="Turkey">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <meta name="theme-color" content="#2ecc71">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+  <meta name="copyright" content="© 2025  Çalışma Sayfası. Tüm hakları saklıdır.">
+
+
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Matematik Çalışma Sayfası - Temel İşlemler">
-  <meta property="og:description" content="Bu çalışma sayfasında temel matematik işlemlerini (toplama, çıkarma, çarpma, bölme) pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.">
+  <meta property="og:description" content="Bu çalışma sayfasında Çarpma işlemlerini pratik yapabilirsiniz. Öğrenciler için mükemmel bir kaynak.">
+  
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://etkinlikler.onrender.com/">
   <meta property="og:image" content="https://example.com/matematik-calisma-sayfasi-gorsel.jpg">
@@ -39,226 +48,236 @@
   <link rel="canonical" href="https://etkinlikler.onrender.com/">
 
 
-  <!-- title: Sayfanın başlığını belirtir. 
-  description: Sayfanın kısa açıklamasını verir.
-  keywords: Sayfayla ilgili anahtar kelimeleri listeler.
-  robots: Arama motorlarının sayfayı indexlemesini ve takip etmesini sağlar.
-  Open Graph meta tags: Sosyal medya paylaşımlarında sayfanın nasıl görüneceğini belirler.
-  canonical: Sayfanın asıl URL'sini gösterir.
-  author: Sayfanın yazarını veya yazarlarını belirtir.
-copyright: Sayfanın telif hakkı bilgilerini verir.
-revisit-after: Arama motorlarının sayfayı ne sıklıkta ziyaret etmesi gerektiğini belirler.
-viewport: Sayfanın mobil cihazlarda nasıl görüntüleneceğini ayarlar.
-  -->
+
 
 
   <style>
+    /* Genel Stiller */
     body {
-      display: flex;
-      flex-direction: column; /* Div'leri alt alta sıralar */
-      gap: 10px; /* Aralarındaki boşluk */
-
-      
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-     
-      justify-content: center;
-      align-items: center;
-    /*  height: 200vh;
       margin: 0;
-     */
-      padding: 20px;
-    
+      padding: 0;
     }
 
-    .game-container {
-   
-   
-   
-      text-align: center;
-
-     max-width: 800px;
-      margin: 0 auto;
+    /* Reklam Banner Alanı */
+    .ad-banner {
+      background-color: #f2f2f2;
       padding: 20px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      width: 400px;
-      height: 400px;
-      
+      text-align: center;
+    }
+
+    /* Topbar (Sosyal Medya Butonları) */
+    .topbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .topbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    /* Navbar (Ana Sayfa, Hakkımızda, İletişim) */
+    .navbar {
+      background-color: #4CAF50;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    /* Oyun Alanı */
+    .game-container {
+      padding: 30px;
+      text-align: center;
     }
 
     h1 {
-      color: #e74c3c; /* Kırmızı */
-      margin-top: 0;
+      margin-bottom: 20px;
     }
 
     #question {
       font-size: 24px;
+      font-weight: bold;
       margin-bottom: 20px;
-      color: #2980b9; /* Mavi */
     }
 
-    #answer {
-      font-size: 18px;
+    input[type="number"] {
       padding: 10px;
-      width: 100px;
-      border: 2px solid #e74c3c; /* Kırmızı */
+      font-size: 16px;
+      border: 1px solid #ccc;
       border-radius: 5px;
+      margin-right: 10px;
     }
 
-    #submit-btn {
-      background-color: #e74c3c; /* Kırmızı */
-      color: #fff;
-      border: none;
+    button {
       padding: 10px 20px;
       font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
       border-radius: 5px;
       cursor: pointer;
-      margin-top: 10px;
     }
 
     #result {
-      font-size: 18px;
       margin-top: 20px;
-      color: #2980b9; /* Mavi */
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .correct {
+      color: #2ecc71;
+    }
+
+    .incorrect {
+      color: #e74c3c;
+    }
+
+    #score-container {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    /* Responsive Tasarım */
+    @media (max-width: 768px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .navbar a {
+        padding: 10px 20px;
+        margin: 5px 0;
+        border:#532ecc solid 2px;
+        border: none;
+      }
     }
   </style>
 
-  
 
-   
- <style>
-       .ust-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin-bottom: 10px;
-    }
- </style>
-
-<style>
-    .button {
-        font-family: Arial, Helvetica, sans-serif;
-              display: inline-block;
-      position: relative;
-      padding: 10px 20px;
-      background-color: #eff1f2;
-      color: #2645f7;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-      font-size: x-large;
-    }
-    
-    .button:hover {
-      background-color: #c1e1f1;
-    }
-    
-    /* .button svg {
-      width: 32px;
-      height: 32px;
-      vertical-align: left;
-      margin-right: 5px;
-    } */
-  </style>
 </head>
 <body>
 
-<script>
-  function shareLink(url) {
-    if (navigator.share) {
-      navigator.share({
-        title: 'Paylaş',
-        url: url
-      })
-        .then(() => console.log('Başarılı paylaşım'))
-        .catch((error) => console.log('Error sharing:', error));
-    } else {
-      console.log('Web Paylaşım API si desteklenmiyor.');
-    }
-  }
-</script>
-
-   <!-- ust-container  BAŞLADI-->
-
-<div class="ust-container">  
-    
-  
-    <a href="https://etkinlikler.onrender.com/ " target="_blank"  class="button">
-        
-        <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <g id="icomoon-ignore"></g>
-          <path d="M16 2.672l-5.331 5.331v-2.133h-4.265v6.398l-3.755 3.755 0.754 0.754 12.597-12.597 12.597 12.597 0.754-0.754-13.351-13.351zM7.47 6.937h2.132v2.132l-2.133 2.133v-4.265z" fill="#000000"></path>
-          <path d="M6.404 16.533v12.795h7.464v-7.464h4.265v7.464h7.464v-12.795l-9.596-9.596-9.596 9.596zM24.53 28.262h-5.331v-7.464h-6.398v7.464h-5.331v-11.287l8.53-8.53 8.53 8.53v11.287z" fill="#000000"></path>
-        </svg>
-        Ana Sayfa <A/>
-
-
-<button class="button onclick="shareLink('https://etkinlikler.onrender.com/')">
-<svg width="32px" height="32px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M14.734 15.8974L19.22 12.1374C19.3971 11.9927 19.4998 11.7761 19.4998 11.5474C19.4998 11.3187 19.3971 11.1022 19.22 10.9574L14.734 7.19743C14.4947 6.9929 14.1598 6.94275 13.8711 7.06826C13.5824 7.19377 13.3906 7.47295 13.377 7.78743V9.27043C7.079 8.17943 5.5 13.8154 5.5 16.9974C6.961 14.5734 10.747 10.1794 13.377 13.8154V15.3024C13.3888 15.6178 13.5799 15.8987 13.8689 16.0254C14.158 16.1521 14.494 16.1024 14.734 15.8974Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>Paylaş
- 
-  <!--svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9 12C9 13.3807 7.88071 14.5 6.5 14.5C5.11929 14.5 4 13.3807 4 12C4 10.6193 5.11929 9.5 6.5 9.5C7.88071 9.5 9 10.6193 9 12Z" stroke="#1C274C" stroke-width="1.5"/>
-      <path d="M14 6.5L9 10" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-      <path d="M14 17.5L9 14" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
-      <path d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z" stroke="#1C274C" stroke-width="1.5"/>
-      <path d="M19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5Z" stroke="#1C274C" stroke-width="1.5"/>
-</svg-->
- 
-</button>
-
- 
-</div>  
-
-<!-- ust-container  BİTTİ-->
-
-
-
-
-
-  
-  <div class="game-container" >
-    <h1>Çarpma Oyunu</h1>
-    <div id="question"></div>
-    <input type="number" id="answer" placeholder="Cevabı girin">
-    <button id="submit-btn">Gönder</button>
-    <div id="result"></div>
+  <!-- <div class="ad-banner">
+    <img src="ad-banner.jpg" alt="Reklam Alanı">
   </div>
 
-  <script>
-    const questionElement = document.getElementById('question');
-    const answerInput = document.getElementById('answer');
-    const submitBtn = document.getElementById('submit-btn');
-    const resultElement = document.getElementById('result');
+  <div class="topbar">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div> -->
 
-    function generateQuestion() {
-      const num1 = Math.floor(Math.random() * 10) + 1;
-      const num2 = Math.floor(Math.random() * 10) + 1;
-      const correctAnswer = num1 * num2;
-      questionElement.textContent = `${num1} x ${num2} = ?`;
-      return correctAnswer;
+  <div class="navbar">
+    <a href="https://etkinlikler.onrender.com/">
+    <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="icomoon-ignore"></g>
+        <path d="M16 2.672l-5.331 5.331v-2.133h-4.265v6.398l-3.755 3.755 0.754 0.754 12.597-12.597 12.597 12.597 0.754-0.754-13.351-13.351zM7.47 6.937h2.132v2.132l-2.133 2.133v-4.265z" fill="#fff"></path>
+        <path d="M6.404 16.533v12.795h7.464v-7.464h4.265v7.464h7.464v-12.795l-9.596-9.596-9.596 9.596zM24.53 28.262h-5.331v-7.464h-6.398v7.464h-5.331v-11.287l8.53-8.53 8.53 8.53v11.287z" fill="#fff"></path>
+      </svg>   Ana Sayfa</a>
+   
+
+      <button class="button onclick="shareLink('https://etkinlikler.onrender.com/Carpma_Oyunu.html')">
+        <svg width="32px" height="32px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.734 15.8974L19.22 12.1374C19.3971 11.9927 19.4998 11.7761 19.4998 11.5474C19.4998 11.3187 19.3971 11.1022 19.22 10.9574L14.734 7.19743C14.4947 6.9929 14.1598 6.94275 13.8711 7.06826C13.5824 7.19377 13.3906 7.47295 13.377 7.78743V9.27043C7.079 8.17943 5.5 13.8154 5.5 16.9974C6.961 14.5734 10.747 10.1794 13.377 13.8154V15.3024C13.3888 15.6178 13.5799 15.8987 13.8689 16.0254C14.158 16.1521 14.494 16.1024 14.734 15.8974Z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>Paylaş
+        </button>
+  </div>
+
+
+<script>
+function shareLink(url) {
+ if (navigator.share) {
+   navigator.share({
+     title: 'Paylaş',
+     url: url
+   })
+     .then(() => console.log('Başarılı paylaşım'))
+     .catch((error) => console.log('Error sharing:', error));
+ } else {
+   console.log('Web Paylaşım API si desteklenmiyor.');
+ }
+}
+</script>
+
+<div class="game-container">
+  <h1>Çarpma Oyunu</h1>
+  <div id="question"></div>
+  <input type="number" id="answer" placeholder="Cevabı girin">
+  <button id="submit-btn">Gönder</button>
+  <div id="result"></div>
+  <div id="score-board">
+    <p>Doğru Cevap: <span id="correct-answers">0</span></p>
+    <p>Yanlış Cevap: <span id="incorrect-answers">0</span></p>
+    <p>Toplam Puan: <span id="total-score" style="font-size: xx-large; color: red;">0</span></p>
+  </div>
+</div>
+
+<script>
+  const questionElement = document.getElementById('question');
+  const answerInput = document.getElementById('answer');
+  const submitBtn = document.getElementById('submit-btn');
+  const resultElement = document.getElementById('result');
+  const correctAnswersElement = document.getElementById('correct-answers');
+  const incorrectAnswersElement = document.getElementById('incorrect-answers');
+  const totalScoreElement = document.getElementById('total-score');
+
+  let correctAnswers = 0;
+  let incorrectAnswers = 0;
+  let totalScore = 0;
+
+  function generateQuestion() {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    const correctAnswer = num1 * num2;
+    questionElement.textContent = `${num1} x ${num2} = ?`;
+    return correctAnswer;
+  }
+
+  let correctAnswer = generateQuestion();
+
+  submitBtn.addEventListener('click', () => {
+    const userAnswer = parseInt(answerInput.value);
+    if (userAnswer === correctAnswer) {
+      resultElement.innerHTML = '&#10004; Doğru +10 puan ';
+      resultElement.style.color = '#2ecc71'; // Yeşil
+      correctAnswers++;
+      totalScore += 10;
+    } else {
+      resultElement.innerHTML = ' &#10006;   Cevap Yanlış -5 puan   ';
+      resultElement.style.color = '#e74c3c'; // Kırmızı
+      incorrectAnswers++;
+      totalScore -= 5;
     }
 
-    let correctAnswer = generateQuestion();
+    correctAnswersElement.textContent = correctAnswers;
+    incorrectAnswersElement.textContent = incorrectAnswers;
+    totalScoreElement.textContent = totalScore;
 
-    submitBtn.addEventListener('click', () => {
-      const userAnswer = parseInt(answerInput.value);
-      if (userAnswer === correctAnswer) {
-        resultElement.textContent = '✨ Tebrikler, doğru cevap! ✨';
-        resultElement.style.color = '#2ecc71'; // Yeşil
-      } else {
-        resultElement.textContent = '😔 Üzgünüm, yanlış cevap.';
-        resultElement.style.color = '#e74c3c'; // Kırmızı
-      }
-      answerInput.value = '';
-      correctAnswer = generateQuestion();
-    });
-  </script>
+    answerInput.value = '';
+    correctAnswer = generateQuestion();
+
+    setTimeout(() => {
+      resultElement.innerHTML = '';
+    }, 2000);
+  });
+</script>
 </body>
 </html>
