@@ -1,0 +1,10 @@
+# Ignore compiled binary files
+*.exe
+*.dll
+*.so
+*.html
+*.css
+*.js
+
+# Ignore certain folders
+etkinlikler/
