@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+    
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7M2RTSYBE"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-Q7M2RTSYBE');
+      </script>
+       <!-- Google tag (gtag.js)  BİTTİ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soru Cevap Oyunu</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+    }
+
+    .navbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .question {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .answer {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+    }
+
+    .button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+
+    .result {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    #newGameButton {
+      display: none;
+      padding: 10px 20px;
+      margin: 20px 0;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #newGameButton:hover {
+      background-color: #45a049;
+    }
+
+    /* Puan ve Sayı Göstergeleri */
+    .score-info {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+
+
+
+
+      
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <title>Görgü Kuralları - Sosyal Davranış ve Etik</title>
+        
+        <meta name="description" content="Sınıf kuralları, sosyal ortamlarda uygun davranış ve etik kurallarını öğrenin. Aile, iş ve arkadaş çevresinde nasıl davranmalısınız?">
+        
+        <meta name="keywords" content="yemekte Sınıf kuralları,Sınıf kuralları, sosyal davranış, etik, aile, iş, arkadaş, davranış kuralları">
+        
+        <meta name="author" content="Your Name">
+        
+        <meta property="og:title" content="Sınıf Kuralları - Sosyal Davranış ve Etik">
+        <meta property="og:description" content="Sınıf kuralları hakkında bilgi edinin. Sosyal ortamlarda nasıl davranmanız gerektiğini öğrenin.">
+        <meta property="og:image" content="URL_TO_IMAGE">
+        
+        <meta property="og:url" content="https://etkinlikler.onrender.com/">
+        
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Sınıf Kuralları - Sosyal Davranış ve Etik">
+        <meta name="twitter:description" content="Sınıf kurallarıyla ilgili her şeyi keşfedin. Uygun davranışları öğrenin.">
+        <meta name="twitter:image" content="URL_TO_IMAGE">
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sınıf Kuralları Oyunu</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sınıf Kuralları Oyunu</title>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Matematik Öğretmeni, Eğitim Platformu">
+    <meta name="copyright" content="© 2023 Matematik Çalışma Sayfası. Tüm hakları saklıdır.">
+    <meta name="revisit-after" content="7 days">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="https://etkinlikler.onrender.com/">
+    <meta property="og:image" content="https://example.com/matematik-calisma-sayfasi-gorsel.jpg">
+    <title>Kelime Tahmin Oyunu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+        }
+        #word-container {
+            font-size: 24px;
+            margin: 20px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        #yeni {
+            margin-top: 20px;
+            font-size: 20px;
+            align-items: center;
+            vertical-align:middle;
+        }
+        input {
+            font-size: 18px;
+            width: 100px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+     
+    </style>
+
+
+
+
+
+
+
+  <style>
+    /* Genel Stiller */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Reklam Banner Alanı */
+    .ad-banner {
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Topbar (Sosyal Medya Butonları) */
+    .topbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .topbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    /* Navbar (Ana Sayfa, Hakkımızda, İletişim) */
+    .navbar {
+      background-color: #4CAF50;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    /* Oyun Alanı */
+    .game-container {
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #question {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .correct {
+      color: #2ecc71;
+    }
+
+    .incorrect {
+      color: #e74c3c;
+    }
+
+    #score-container {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    /* Responsive Tasarım */
+    @media (max-width: 768px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+        
+      }
+
+
+      
+      .navbar a {
+        padding: 10px 20px;
+        margin: 5px 0;
+        border:#532ecc solid 2px;
+        border: none;
+      }
+    }
+  </style>
+
+
+</head>
+<body>
+
+
+  <!-- <div class="ad-banner">
+    <img src="ad-banner.jpg" alt="Reklam Alanı">
+  </div>
+
+  <div class="topbar">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div> -->
+
+  <div class="navbar">
+    <a href="https://etkinlikler.onrender.com/">
+    <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="icomoon-ignore"></g>
+        <path d="M16 2.672l-5.331 5.331v-2.133h-4.265v6.398l-3.755 3.755 0.754 0.754 12.597-12.597 12.597 12.597 0.754-0.754-13.351-13.351zM7.47 6.937h2.132v2.132l-2.133 2.133v-4.265z" fill="#fff"></path>
+        <path d="M6.404 16.533v12.795h7.464v-7.464h4.265v7.464h7.464v-12.795l-9.596-9.596-9.596 9.596zM24.53 28.262h-5.331v-7.464h-6.398v7.464h-5.331v-11.287l8.53-8.53 8.53 8.53v11.287z" fill="#fff"></path>
+      </svg>   Ana Sayfa</a>
+   
+   <button class="button" onclick="shareLink('https://etkinlikler.onrender.com/ders_kurallari.html')"> 
+  
+    <!--svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <path d="M9 12C9 13.3807 7.88071 14.5 6.5 14.5C5.11929 14.5 4 13.3807 4 12C4 10.6193 5.11929 9.5 6.5 9.5C7.88071 9.5 9 10.6193 9 12Z" stroke="#1C274C" stroke-width="1.5"/>
+     <path d="M14 6.5L9 10" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+     <path d="M14 17.5L9 14" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+     <path d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z" stroke="#1C274C" stroke-width="1.5"/>
+     <path d="M19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5Z" stroke="#1C274C" stroke-width="1.5"/>
+   </svg-->
+     
+    <svg width="32px" height="32px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.734 15.8974L19.22 12.1374C19.3971 11.9927 19.4998 11.7761 19.4998 11.5474C19.4998 11.3187 19.3971 11.1022 19.22 10.9574L14.734 7.19743C14.4947 6.9929 14.1598 6.94275 13.8711 7.06826C13.5824 7.19377 13.3906 7.47295 13.377 7.78743V9.27043C7.079 8.17943 5.5 13.8154 5.5 16.9974C6.961 14.5734 10.747 10.1794 13.377 13.8154V15.3024C13.3888 15.6178 13.5799 15.8987 13.8689 16.0254C14.158 16.1521 14.494 16.1024 14.734 15.8974Z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+ Paylaş Faydalansınlar
+ </button>
+
+
+   
+<script>
+function shareLink(url) {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Paylaş',
+      url: url
+    })
+      .then(() => console.log('Başarılı paylaşım'))
+      .catch((error) => console.log('Error sharing:', error));
+  } else {
+    console.log('Web Paylaşım API si desteklenmiyor.');
+  }
+}
+</script>
+  </div>
+ 
+<div class="game-container">
+
+
+  <div class="navbar">
+    <h1>Sınıf Kuralları Oyunu</h1>
+  </div>
+
+  <div class="container">
+    <div class="question"></div>
+    <div class="answer"></div>
+    <div class="buttons">
+      <button class="button like">  Doğru  </button>
+      <button class="button dislike">Yanlış </button>
+    </div>
+    <div class="result"></div>
+    <button id="newGameButton">Yeni Oyun</button>
+    <div class="score-info">
+      Doğru: <span id="correctCount">0</span> | Yanlış: <span id="incorrectCount">0</span> | Puan: <span id="scoreCount">0</span>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+    { question: "Derste Başkalarını güldürmek için komik mimikler yapmak", correct: false },
+             { question: "Bir arkadaşın konuşuyorsa, sözünü bitirmesini beklemek", correct: true },
+            { question: "Öğretmen konuşurken sözünü kesmek", correct: false },
+            { question: "Elini kaldırarak beklerken “ben, ben” gibi ifadeler kullanmak", correct: false },
+            { question: "Derste Diğer arkadaşlarını rahatsız etmek", correct: false },
+          
+            { question: "Derse geç gelmek.", correct: false },
+  
+            { question: "Ders başlamadan önce sınıftaki yerimi almak", correct: true },
+            { question: "Öğretmen veya bir arkadaş konuşurken sözü kesilmez.", correct: true },
+            { question: "Derste teneffüs zili çaldığında hemen dışarı koşulmaz.", correct: true },
+         
+            
+            { question: "Teneffüslerde sınıf havalandırılmalıdır.", correct: true },
+            { question: "Teneffüslerde sınıf havalandırılmaya gerek yoktur.", correct: false },
+            { question: "Arkadaşlarla kavga edilmez.", correct: true },
+            { question: "Herkese nazik davranmak.", correct: true },
+            { question: "Sınıf içinde koşulmaz.", correct: true },
+            { question: "Tenefüse koşarak çıkmalıyız.", correct: false },
+
+            { question: "Sınıf içinde yerlere çöp atılmaz.", correct: true },
+            { question: "Çöpleri uzaktan atmalıyız.", correct: false },
+            { question: "Sınıftaki malzemelere zarar verilmez.", correct: true },
+            { question: "Okul alanında bağırılmaz ve koşulmaz", correct: true },
+
+            { question: "Yerlere çöp atılmaz ve tuvaletler kirletilmez.", correct: true },
+            { question: "Suyu gereksiz yere akıtmamalıdır.", correct: true },
+            { question: "Okuldaki herkese karşı saygılı davranılmalıdır.", correct: true },
+            { question: "Okul, araç ve gereçlerine zarar verilmez.", correct: true },
+            { question: "Öğrenci sahip olduğu sorumlulukların farkında olmalıdır.", correct: true },
+            { question: "Okulda yasak olan eşyalar ve yiyecekler okula getirilemez.", correct: true },
+            { question: "Arkadaşlarıma karşı hoşgörülü olmalıyız.", correct: true },
+            { question: "Arkadaşlara karşı sert ve kaba davranmak.", correct: false },
+            { question: "Derste gerekli olmadıkça ayağa kalkıp , etrafta dolaşmak. ", correct: false },
+            { question: "Derste sunum yapan arkadaşının dikkatini dağıtmaya çalışmak.", correct: false },
+            { question: "Sınıfta ders dışı şeylerle meşgul olmak ", correct: false },
+            { question: "Derste arkadaşlarının çalışmalarına ve fikirlerine saygı göstermek. ", correct: true },
+            { question: "Derste eğer çalışmayı ilk bitiren olursan, bununla övünmek. ", correct: false },
+            { question: "Derste yüzünü öğretmene dönük ve saygılı bir şekilde oturmak. ", correct: true },
+            { question: "Sınıfta bulunan akıllı tahtaları, öğretmen bilgisi ve kontrolü dahilinde kullanmak ", correct: true },
+            { question: "Merdivenlerden iniş-çıkışlarda sağ taraf kullanılmalıdır. ", correct: true },
+            { question: "Merdivenlerden iniş-çıkışlarda sol taraf kullanılmalıdır. ", correct: false },
+            { question: "Argo ve küfürlü sözler kullanmak.  ", correct: false },
+            { question: "Derste dikkatli şekilde dersi takip etmek. ", correct: true },
+            { question: "Derste dikkatsiz şekilde dersi takip etmek. ", correct: false },
+            { question: "Derste söz alarak konuşmak. ", correct: true },
+            { question: "Derste başkası konuşurken sözünü keserek konuşmak", correct: false },
+            { question: "Okulu ve sınıfı temiz kullanmak", correct: true },
+            { question: "Başkasının eşyasını izinsiz kullanmak", correct: false },
+            { question: "Başkasının eşyasını kullanmak için izin istemeye gerek yoktur.", correct: false },
+            { question: "Verilen görevi zamanında ve özenerek yaparım", correct: true },
+            { question: "Verilen görevi evde unutmak", correct: false },
+            { question: "Öğretmenimi kendi sırasında sessizce beklemek", correct: true },
+            { question: "Öğretmenimi koridorda beklemek", correct: false },
+            { question: "Derste öğretmenimi sessizce dinlemek ", correct: true },
+            { question: "Sınıfta ve koridorda oyun oynamak.", correct: true },
+            { question: "Teneffüste sınıfta ve koridorda oyun oynamak. ", correct: false },
+            { question: "Derste öğretmenimi dikkatli bir şekilde dinlemek. ", correct: true },
+            { question: "Sınıfta koşturmacalı oyunlar oynamak", correct: false },
+            { question: "Derste başka işlerle uğraşmak.", correct: false },
+          
+            { question: "Başkalarının eşyalarını kullanmak için izin almak.", correct: true },
+         
+            { question: "Söz almak için parmak kaldırmak.", correct: true },
+            { question: "Nezaket sözcükleri kullanmak", correct: true },
+            { question: "Görgü kurallarına uyamak.", correct: true }
+    ];
+
+    let currentQuestionIndex = 0;
+    let correctAnswers = 0;
+    let incorrectAnswers = 0;
+    let score = 0;
+
+    function shuffleQuestions() {
+      for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [questions[i], questions[j]] = [questions[j], questions[i]];
+      }
+    }
+
+    function showRandomQuestion() {
+      if (currentQuestionIndex < questions.length) {
+        shuffleQuestions();
+        const currentQuestion = questions[currentQuestionIndex];
+        document.querySelector(".question").textContent = currentQuestion.question;
+        document.querySelector(".answer").textContent = ""; 
+      } else {
+        showResult();
+      }
+    }
+
+    function checkAnswer(isCorrect) {
+      const currentQuestion = questions[currentQuestionIndex];
+      if (isCorrect === currentQuestion.correct) {
+        correctAnswers++;
+        score += 10;
+        document.querySelector(".answer").textContent = "✔️ Doğru!";
+      } else {
+        incorrectAnswers++;
+        score -= 5;
+        document.querySelector(".answer").textContent = "❌ Yanlış!";
+      }
+
+      updateScoreDisplay(); // Puanları güncelle
+
+      setTimeout(() => {
+        currentQuestionIndex++;
+        showRandomQuestion();
+      }, 2000);
+    }
+
+    function showResult() {
+      const resultContainer = document.querySelector(".result");
+      resultContainer.textContent = `Oyun Bitti! Toplam Puan: ${score}`;
+      document.getElementById("newGameButton").style.display = "block";
+    }
+
+    function updateScoreDisplay() {
+      document.getElementById("correctCount").textContent = correctAnswers;
+      document.getElementById("incorrectCount").textContent = incorrectAnswers;
+      document.getElementById("scoreCount").textContent = score;
+    }
+
+    document.querySelector(".like").addEventListener("click", () => {
+      checkAnswer(true);
+    });
+
+    document.querySelector(".dislike").addEventListener("click", () => {
+      checkAnswer(false);
+    });
+
+    startNewGame();
+
+    function startNewGame() {
+      currentQuestionIndex = 0;
+      correctAnswers = 0;
+      incorrectAnswers = 0;
+      score = 0;
+
+      document.querySelector(".question").textContent = "";
+      document.querySelector(".answer").textContent = "";
+      document.querySelector(".result").textContent = "";
+
+      updateScoreDisplay(); // Puanları sıfırla
+      showRandomQuestion();
+      document.getElementById("newGameButton").style.display = "none";
+    }
+
+    document.getElementById("newGameButton").addEventListener("click", startNewGame);
+  </script>
+</body>
+</html>
