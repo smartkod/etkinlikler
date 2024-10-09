@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakam Seçme Oyunu</title>
+    <style>
+      
+        .container {
+            font-size: 34px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .options {
+            margin: 20px 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .score {
+            font-size: 20px;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .point {
+            position: absolute;
+            font-size: 24px;
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 1s ease, opacity 2s ease;
+            white-space: nowrap;
+        }
+        .point-animation {
+            animation: puff 2s forwards;
+        }
+        @keyframes puff {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-40px) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+
+
+    
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7M2RTSYBE"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-Q7M2RTSYBE');
+      </script>
+       <!-- Google tag (gtag.js)  BİTTİ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soru Cevap Oyunu</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+    }
+
+    .navbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .question {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .answer {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+    }
+
+    .button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+
+    .result {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    #newGameButton {
+      display: none;
+      padding: 10px 20px;
+      margin: 20px 0;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #newGameButton:hover {
+      background-color: #45a049;
+    }
+
+    /* Puan ve Sayı Göstergeleri */
+    .score-info {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+
+
+
+
+      
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <title> SINIF KURALLLARI - Görgü Kuralları - Sosyal Davranış ve Etik </title>
+        
+        <meta name="description" content="Sınıf kuralları, sosyal ortamlarda uygun davranış ve etik kurallarını öğrenin. Aile, iş ve arkadaş çevresinde nasıl davranmalısınız?">
+        
+        <meta name="keywords" content="Sınıf kuralları, sosyal davranış, etik, aile, iş, arkadaş, davranış kuralları">
+        
+        <meta name="author" content="Your Name">
+        
+        <meta property="og:title" content="Sınıf Kuralları - Sosyal Davranış ve Etik">
+        <meta property="og:description" content="Sınıf kuralları hakkında bilgi edinin. Sosyal ortamlarda nasıl davranmanız gerektiğini öğrenin.">
+        <meta property="og:image" content="URL_TO_IMAGE">
+        
+        <meta property="og:url" content="https://etkinlikler.onrender.com/">
+        
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Sınıf Kuralları - Sosyal Davranış ve Etik">
+        <meta name="twitter:description" content="Sınıf kurallarıyla ilgili her şeyi keşfedin. Uygun davranışları öğrenin.">
+        <meta name="twitter:image" content="URL_TO_IMAGE">
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sınıf Kuralları Oyunu</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sınıf Kuralları Oyunu</title>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Matematik Öğretmeni, Eğitim Platformu">
+    <meta name="copyright" content="© 2023 Matematik Çalışma Sayfası. Tüm hakları saklıdır.">
+    <meta name="revisit-after" content="7 days">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="https://etkinlikler.onrender.com/">
+    <meta property="og:image" content="https://example.com/matematik-calisma-sayfasi-gorsel.jpg">
+    <title>Kelime Tahmin Oyunu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+        }
+        #word-container {
+            font-size: 24px;
+            margin: 20px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        #yeni {
+            margin-top: 20px;
+            font-size: 20px;
+            align-items: center;
+            vertical-align:middle;
+        }
+        input {
+            font-size: 18px;
+            width: 100px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+     
+    </style>
+
+
+
+
+
+
+
+  <style>
+    /* Genel Stiller */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Reklam Banner Alanı */
+    .ad-banner {
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Topbar (Sosyal Medya Butonları) */
+    .topbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .topbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    /* Navbar (Ana Sayfa, Hakkımızda, İletişim) */
+    .navbar {
+      background-color: #4CAF50;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    /* Oyun Alanı */
+    .game-container {
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #question {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .correct {
+      color: #2ecc71;
+    }
+
+    .incorrect {
+      color: #e74c3c;
+    }
+
+    #score-container {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    /* Responsive Tasarım */
+    @media (max-width: 768px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+        
+      }
+
+
+      
+      .navbar a {
+        padding: 10px 20px;
+        margin: 5px 0;
+        border:#532ecc solid 2px;
+        border: none;
+      }
+    }
+  </style>
+
+
+</head>
+<body>
+
+
+  <!-- <div class="ad-banner">
+    <img src="ad-banner.jpg" alt="Reklam Alanı">
+  </div>
+
+  <div class="topbar">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div> -->
+
+  <div class="navbar">
+    <a href="https://etkinlikler.onrender.com/">
+    <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="icomoon-ignore"></g>
+        <path d="M16 2.672l-5.331 5.331v-2.133h-4.265v6.398l-3.755 3.755 0.754 0.754 12.597-12.597 12.597 12.597 0.754-0.754-13.351-13.351zM7.47 6.937h2.132v2.132l-2.133 2.133v-4.265z" fill="#fff"></path>
+        <path d="M6.404 16.533v12.795h7.464v-7.464h4.265v7.464h7.464v-12.795l-9.596-9.596-9.596 9.596zM24.53 28.262h-5.331v-7.464h-6.398v7.464h-5.331v-11.287l8.53-8.53 8.53 8.53v11.287z" fill="#fff"></path>
+      </svg>   Ana Sayfa</a>
+   
+   <button class="button" onclick="shareLink('https://etkinlikler.onrender.com/SINIF_kurallari.html')"> 
+  
+    <!--svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <path d="M9 12C9 13.3807 7.88071 14.5 6.5 14.5C5.11929 14.5 4 13.3807 4 12C4 10.6193 5.11929 9.5 6.5 9.5C7.88071 9.5 9 10.6193 9 12Z" stroke="#1C274C" stroke-width="1.5"/>
+     <path d="M14 6.5L9 10" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+     <path d="M14 17.5L9 14" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+     <path d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z" stroke="#1C274C" stroke-width="1.5"/>
+     <path d="M19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5Z" stroke="#1C274C" stroke-width="1.5"/>
+   </svg-->
+     
+    <svg width="32px" height="32px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.734 15.8974L19.22 12.1374C19.3971 11.9927 19.4998 11.7761 19.4998 11.5474C19.4998 11.3187 19.3971 11.1022 19.22 10.9574L14.734 7.19743C14.4947 6.9929 14.1598 6.94275 13.8711 7.06826C13.5824 7.19377 13.3906 7.47295 13.377 7.78743V9.27043C7.079 8.17943 5.5 13.8154 5.5 16.9974C6.961 14.5734 10.747 10.1794 13.377 13.8154V15.3024C13.3888 15.6178 13.5799 15.8987 13.8689 16.0254C14.158 16.1521 14.494 16.1024 14.734 15.8974Z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+ Paylaş Faydalansınlar
+ </button>
+
+
+   
+<script>
+function shareLink(url) {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Paylaş',
+      url: url
+    })
+      .then(() => console.log('Başarılı paylaşım'))
+      .catch((error) => console.log('Error sharing:', error));
+  } else {
+    console.log('Web Paylaşım API si desteklenmiyor.');
+  }
+}
+</script>
+  </div>
+ 
+
+
+<div class="container">
+    <h1>Örüntü Oyunu</h1>
+    <p>Aşağıdaki örüntüde ... yerine hangi rakam gelmeli?</p>
+    <p id="numberSequence">54 58 ... 70 74 78</p>
+   
+    <div class="options" id="options">
+        <button onclick="checkAnswer(62)">A: 62</button>
+        <button onclick="checkAnswer(64)">B: 64</button>
+        <button onclick="checkAnswer(66)">C: 66</button>
+    </div>
+    <div class="message" id="message"></div>
+    <div class="score" id="score">Toplam Puan: 0</div>
+    <button onclick="generateNewSequence()">Yeni Sayı Dizisi</button>
+</div>
+
+<script>
+    let correctAnswer;
+    let totalScore = 0;
+    let isAnswered = false; // Cevaplanıp cevaplanmadığını kontrol etmek için
+
+    function checkAnswer(selected) {
+        if (isAnswered) return; // Eğer cevaplanmışsa hiçbir şey yapma
+
+        const messageElement = document.getElementById('message');
+        const scoreElement = document.getElementById('score');
+        
+        for (let i = 0; i < 5; i++) { // 5 tane +10 veya -5 göster
+            let pointElement = document.createElement('div');
+            pointElement.className = 'point';
+
+            if (selected === correctAnswer) {
+                messageElement.textContent = "Tebrikler! Doğru cevap.";
+                messageElement.style.color = "green";
+                totalScore += 1; // Doğru cevap +10 puan
+                pointElement.textContent = "+10";
+                pointElement.style.color = "green";
+            } else {
+                messageElement.textContent = "Üzgünüm, yanlış cevap. Tekrar deneyin!";
+                messageElement.style.color = "red";
+                totalScore -= 1; // Yanlış cevap -5 puan
+                pointElement.textContent = "-5";
+                pointElement.style.color = "red";
+            }
+
+            // Puanı güncelle
+            scoreElement.textContent = `Toplam Puan: ${totalScore}`;
+
+            // Puan değişim animasyonu
+            pointElement.classList.add('point-animation');
+            pointElement.style.left = `${Math.random() * 100}px`; // Her seferinde farklı konum
+            scoreElement.appendChild(pointElement);
+            
+            // Animasyon bitince elementi kaldır
+            setTimeout(() => {
+                scoreElement.removeChild(pointElement);
+            }, 1000); // 1 saniye sonra kaldır
+        }
+
+        // Cevaplandı olarak işaretle
+        isAnswered = true;
+    }
+
+    function generateNewSequence() {
+        // Rastgele iki basamaklı bir başlangıç sayısı seç
+        const startNum = Math.floor(Math.random() * 90) + 10;
+        const increment = Math.floor(Math.random() * 3) + 2; // 2, 3 veya 4 artırma
+        const newSequence = [];
+        
+        // Rastgele artan veya azalan diziyi oluştur
+        const isAscending = Math.random() < 0.5; // %50 ihtimalle artan veya azalan
+
+        for (let i = 0; i < 8; i++) {
+            if (i === 2) {
+                // Üçüncü elemanı ... yap
+                newSequence.push("...");
+            } else if (isAscending) {
+                newSequence.push(startNum + increment * i); // Artan diziyi ekle
+            } else {
+                newSequence.push(startNum + increment * (7 - i)); // Azalan diziyi ekle
+            }
+        }
+
+        // Doğru cevabı ayarla
+        correctAnswer = isAscending ? startNum + increment * 2 : startNum + increment * (7 - 2); // Doğru cevap
+
+        // Seçenekler için rastgele rakamlar oluştur
+        const options = [correctAnswer]; // Doğru cevabı ekle
+        while (options.length < 3) {
+            const randomOption = Math.floor(Math.random() * 90) + 10; // Rastgele iki basamaklı
+            if (!options.includes(randomOption)) {
+                options.push(randomOption);
+            }
+        }
+
+        // Seçenekleri karıştır
+        options.sort(() => Math.random() - 0.5); // Seçenekleri karıştır
+
+        // Yeni sayı dizisini ve seçenekleri güncelle
+        document.getElementById('numberSequence').textContent = newSequence.join(' ');
+        document.getElementById('options').innerHTML = `
+            <button onclick="checkAnswer(${options[0]})">A) ${options[0]}</button>
+            <button onclick="checkAnswer(${options[1]})">B) ${options[1]}</button>
+            <button onclick="checkAnswer(${options[2]})">C) ${options[2]}</button>
+        `;
+        document.getElementById('message').textContent = ''; // Mesajı temizle
+
+        // Cevaplanmamış duruma geri döndür
+        isAnswered = false;
+    }
+</script>
+
+</body>
+</html>
