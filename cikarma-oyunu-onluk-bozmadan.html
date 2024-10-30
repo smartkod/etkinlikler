@@ -227,75 +227,75 @@ function shareLink(url) {
 </div>
 
 <script>
-const questionElement = document.getElementById('question');
-const answerInput = document.getElementById('answer');
-const submitBtn = document.getElementById('submit-btn');
-const resultElement = document.getElementById('result');
-const correctAnswersElement = document.getElementById('correct-answers');
-const incorrectAnswersElement = document.getElementById('incorrect-answers');
-const totalScoreElement = document.getElementById('total-score');
-const evaluationElement = document.getElementById('evaluation');
-
-let correctAnswers = 0;
-let incorrectAnswers = 0;
-let totalScore = 0;
-
-function generateQuestion() {
-    let num1, num2;
-    do {
-        num1 = Math.floor(Math.random() * 90) + 10; // 10 ile 99 arasında rastgele sayı
-        num2 = Math.floor(Math.random() * 90) + 10; // 10 ile 99 arasında rastgele sayı
-    } while ((num1 % 10) >= (num2 % 10)); // Birinci sayının birler basamağı ikinci sayıdan küçük olmalı
-
-    const correctAnswer = num1 - num2; // Çıkarma işlemi
-    questionElement.textContent = `${num1} - ${num2} = ?`;
-    return correctAnswer;
-}
-
-let correctAnswer = generateQuestion();
-
-submitBtn.addEventListener('click', () => {
-    const userAnswer = parseInt(answerInput.value);
-    if (userAnswer === correctAnswer) {
-        resultElement.textContent = '✓';
-        resultElement.classList.add('correct');
-        resultElement.classList.remove('incorrect');
-        setTimeout(() => {
-            resultElement.textContent = '';
-        }, 2000);
-        correctAnswers++;
-        totalScore += 10; // Doğru cevap için 10 puan
-    } else {
-        resultElement.textContent = '✗';
-        resultElement.classList.add('incorrect');
-        resultElement.classList.remove('correct');
-        setTimeout(() => {
-            resultElement.textContent = '';
-        }, 2000);
-        incorrectAnswers++;
-        totalScore -= 5; // Yanlış cevap için 5 puan kaybı
-    }
-    answerInput.value = '';
-    correctAnswer = generateQuestion();
-    updateScoreDisplay();
-});
-
-function updateScoreDisplay() {
-    correctAnswersElement.textContent = correctAnswers;
-    incorrectAnswersElement.textContent = incorrectAnswers;
-    totalScoreElement.textContent = totalScore;
-    evaluateScore();
-}
-
-function evaluateScore() {
-    if (totalScore < 0) {
-        evaluationElement.textContent = 'Daha fazla pratik yapmalısınız!';
-    } else if (totalScore < 30) {
-        evaluationElement.textContent = 'İyi gidiyorsunuz, ama daha fazla çalışmalısınız!';
-    } else if (totalScore < 60) {
-        evaluationElement.textContent = 'Güzel! Başarılı bir şekilde öğreniyorsunuz!';
-    } else {
-        evaluationElement.textContent = 'Harika! Mükemmel bir şekilde öğreniyorsunuz!';
-    }
-}
-</script>
+  const questionElement = document.getElementById('question');
+  const answerInput = document.getElementById('answer');
+  const submitBtn = document.getElementById('submit-btn');
+  const resultElement = document.getElementById('result');
+  const correctAnswersElement = document.getElementById('correct-answers');
+  const incorrectAnswersElement = document.getElementById('incorrect-answers');
+  const totalScoreElement = document.getElementById('total-score');
+  const evaluationElement = document.getElementById('evaluation');
+  
+  let correctAnswers = 0;
+  let incorrectAnswers = 0;
+  let totalScore = 0;
+  
+  function generateQuestion() {
+      let num1, num2;
+      do {
+          num1 = Math.floor(Math.random() * 90) + 10; // 10 ile 99 arasında rastgele sayı
+          num2 = Math.floor(Math.random() * 90) + 10; // 10 ile 99 arasında rastgele sayı
+      } while ((num1 % 10) <= (num2 % 10)); // Birinci sayının birler basamağı ikinci sayıdan büyük olmalı
+  
+      const correctAnswer = num1 - num2; // Çıkarma işlemi
+      questionElement.textContent = `${num1} - ${num2} = ?`;
+      return correctAnswer;
+  }
+  
+  let correctAnswer = generateQuestion();
+  
+  submitBtn.addEventListener('click', () => {
+      const userAnswer = parseInt(answerInput.value);
+      if (userAnswer === correctAnswer) {
+          resultElement.textContent = '✓';
+          resultElement.classList.add('correct');
+          resultElement.classList.remove('incorrect');
+          setTimeout(() => {
+              resultElement.textContent = '';
+          }, 2000);
+          correctAnswers++;
+          totalScore += 10; // Doğru cevap için 10 puan
+      } else {
+          resultElement.textContent = '✗';
+          resultElement.classList.add('incorrect');
+          resultElement.classList.remove('correct');
+          setTimeout(() => {
+              resultElement.textContent = '';
+          }, 2000);
+          incorrectAnswers++;
+          totalScore -= 5; // Yanlış cevap için 5 puan kaybı
+      }
+      answerInput.value = '';
+      correctAnswer = generateQuestion();
+      updateScoreDisplay();
+  });
+  
+  function updateScoreDisplay() {
+      correctAnswersElement.textContent = correctAnswers;
+      incorrectAnswersElement.textContent = incorrectAnswers;
+      totalScoreElement.textContent = totalScore;
+      evaluateScore();
+  }
+  
+  function evaluateScore() {
+      if (totalScore < 0) {
+          evaluationElement.textContent = 'Daha fazla pratik yapmalısınız!';
+      } else if (totalScore < 30) {
+          evaluationElement.textContent = 'İyi gidiyorsunuz, ama daha fazla çalışmalısınız!';
+      } else if (totalScore < 60) {
+          evaluationElement.textContent = 'Güzel! Başarılı bir şekilde öğreniyorsunuz!';
+      } else {
+          evaluationElement.textContent = 'Harika! Mükemmel bir şekilde öğreniyorsunuz!';
+      }
+  }
+  </script>
