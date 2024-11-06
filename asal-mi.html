@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="TR">
+<head>
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q7M2RTSYBE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q7M2RTSYBE');
+</script>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asal Sayı Oyunu</title>
+
+  <meta name="description" content="Bu web sayfası, çocuklar için eğlenceli asal sayı oyunu öğretimini içerir. Çocukların temel matematik becerilerini geliştirirken asal sayılar hakkında bilgi edinmelerine yardımcı olur.">
+<meta name="keywords" content="asal sayı oyunu, matematik oyunları, çocuklar için eğitici oyunlar, temel matematik becerileri, eğlenceli öğrenme, asal sayılar">
+<meta name="author" content="zafersozen, zafersozen@gmail.com">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Asal Sayı Oyunu">
+<meta property="og:description" content="Asal Sayı Oyunu hakkında bilgi edinin. Çocukların matematik becerilerini geliştirirken asal sayılarla eğlenceli bir deneyim yaşayın.">
+<meta property="og:image" content="URL_TO_IMAGE">
+<meta property="og:url" content="https://etkinlikler.onrender.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Asal Sayı Oyunu">
+<meta name="twitter:description" content="Asal Sayı Oyunu ile çocukların matematik becerilerini geliştirin. Eğlenceli ve öğretici bir deneyim için hemen başlayın!">
+<meta name="twitter:image" content="URL_TO_IMAGE">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+     /* display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-container {
+      background-color: #87ceeb;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;*/
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .number {
+      font-size: 48px;
+      margin: 20px 0;
+    }
+
+    .button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #4998ec;
+    }
+
+    .score-container {
+      margin-top: 20px;
+    }
+
+    .message {
+      font-size: 24px;
+      margin-top: 10px;
+      color: #ff4500;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .show {
+      opacity: 1;
+    }
+
+    .fireworks {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      display: none;
+      top: 0;
+      left: 0;
+    }
+
+    .stars {
+      margin-top: 10px;
+    }
+
+    .star {
+      color: gold;
+      font-size: 24px;
+      margin: 0 2px;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { transform: scale(0.5); opacity: 0; }
+      50% { transform: scale(1.5); opacity: 1; }
+    }
+
+    .firework {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+      );
+      animation: sparkle 1s linear forwards;
+    }
+  </style>
+<style>
+    /* Genel Stiller */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Reklam Banner Alanı */
+    .ad-banner {
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Topbar (Sosyal Medya Butonları) */
+    .topbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .topbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    /* Navbar (Ana Sayfa, Hakkımızda, İletişim) */
+    .navbar {
+      background-color: #4CAF50;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    /* Oyun Alanı */
+    .game-container {
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #question {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .correct {
+      color: #2ecc71;
+    }
+
+    .incorrect {
+      color: #e74c3c;
+    }
+
+    #score-container {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    /* Responsive Tasarım */
+    @media (max-width: 768px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .navbar a {
+        padding: 10px 20px;
+        margin: 5px 0;
+        border:#532ecc solid 2px;
+        border: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+    <!-- <div class="ad-banner">
+    <img src="ad-banner.jpg" alt="Reklam Alanı">
+  </div>
+
+  <div class="topbar">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </div> -->
+
+  <div class="navbar">
+    <a href="https://etkinlikler.onrender.com/">
+    <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="icomoon-ignore"></g>
+        <path d="M16 2.672l-5.331 5.331v-2.133h-4.265v6.398l-3.755 3.755 0.754 0.754 12.597-12.597 12.597 12.597 0.754-0.754-13.351-13.351zM7.47 6.937h2.132v2.132l-2.133 2.133v-4.265z" fill="#fff"></path>
+        <path d="M6.404 16.533v12.795h7.464v-7.464h4.265v7.464h7.464v-12.795l-9.596-9.596-9.596 9.596zM24.53 28.262h-5.331v-7.464h-6.398v7.464h-5.331v-11.287l8.53-8.53 8.53 8.53v11.287z" fill="#fff"></path>
+      </svg>   Ana Sayfa</a>
+   
+   <button class="button" onclick="shareLink('https://etkinlikler.onrender.com/toplama_oyunu.html')"> 
+  
+    <!--svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <path d="M9 12C9 13.3807 7.88071 14.5 6.5 14.5C5.11929 14.5 4 13.3807 4 12C4 10.6193 5.11929 9.5 6.5 9.5C7.88071 9.5 9 10.6193 9 12Z" stroke="#1C274C" stroke-width="1.5"/>
+     <path d="M14 6.5L9 10" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+     <path d="M14 17.5L9 14" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+     <path d="M19 18.5C19 19.8807 17.8807 21 16.5 21C15.1193 21 14 19.8807 14 18.5C14 17.1193 15.1193 16 16.5 16C17.8807 16 19 17.1193 19 18.5Z" stroke="#1C274C" stroke-width="1.5"/>
+     <path d="M19 5.5C19 6.88071 17.8807 8 16.5 8C15.1193 8 14 6.88071 14 5.5C14 4.11929 15.1193 3 16.5 3C17.8807 3 19 4.11929 19 5.5Z" stroke="#1C274C" stroke-width="1.5"/>
+   </svg-->
+     
+    <svg width="32px" height="32px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.734 15.8974L19.22 12.1374C19.3971 11.9927 19.4998 11.7761 19.4998 11.5474C19.4998 11.3187 19.3971 11.1022 19.22 10.9574L14.734 7.19743C14.4947 6.9929 14.1598 6.94275 13.8711 7.06826C13.5824 7.19377 13.3906 7.47295 13.377 7.78743V9.27043C7.079 8.17943 5.5 13.8154 5.5 16.9974C6.961 14.5734 10.747 10.1794 13.377 13.8154V15.3024C13.3888 15.6178 13.5799 15.8987 13.8689 16.0254C14.158 16.1521 14.494 16.1024 14.734 15.8974Z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+ Paylaş Faydalansınlar
+ </button>
+
+ <script>
+    function shareLink(url) {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Paylaş',
+          url: url
+        })
+          .then(() => console.log('Başarılı paylaşım'))
+          .catch((error) => console.log('Error sharing:', error));
+      } else {
+        console.log('Web Paylaşım API si desteklenmiyor.');
+      }
+    }
+    </script>
+      </div>
+
+  <div class="game-container">
+    <h1>Asal Sayı Oyunu</h1>
+    <div class="number" id="number"></div>
+    <button class="button" id="prime">Asal</button>
+    <button class="button" id="not-prime">Asal Değil</button>
+    <div class="score-container">
+      Puan: <span id="score">0</span>
+    </div>
+    <div class="stars" id="stars"></div>
+    <div class="correct-count">Doğru Sayı: <span id="correct-count">0</span></div>
+    <div class="wrong-count">Yanlış Sayı: <span id="wrong-count">0</span></div>
+    <div class="message" id="message"></div>
+    <div class="fireworks" id="fireworks"></div>
+  </div>
+
+  <script>
+    let score = 0;
+    let correctCount = 0;
+    let wrongCount = 0;
+    let currentNumber;
+
+    function isPrime(num) {
+      if (num <= 1) return false;
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    }
+
+    function generateNumber() {
+      currentNumber = Math.floor(Math.random() * 100) + 1;
+      document.getElementById('number').textContent = currentNumber;
+      document.getElementById('message').classList.remove('show'); // Mesajı gizle
+    }
+
+    function updateScore(isCorrect) {
+      if (isCorrect) {
+        score += 10;
+        correctCount++;
+        showMessage("Tebrikler!", true);
+      } else {
+        score -= 5;
+        wrongCount++;
+        showMessage("Üzgünüm!", false);
+      }
+      document.getElementById('score').textContent = score;
+      document.getElementById('correct-count').textContent = correctCount;
+      document.getElementById('wrong-count').textContent = wrongCount;
+      updateStars(); // Yıldızları güncelle
+      generateNumber(); // Yeni sayı oluştur
+    }
+
+    function showMessage(text, isSuccess) {
+      const messageElement = document.getElementById('message');
+      messageElement.textContent = text;
+      messageElement.classList.add('show'); // Mesajı görünür yap
+
+      if (isSuccess) {
+        showFireworks(); // Sadece doğru tahminlerde havai fişekleri göster
+      }
+
+      // Mesajı 2 saniye sonra kaybolacak şekilde ayarla
+      setTimeout(() => {
+        messageElement.classList.remove('show'); // Mesajı gizle
+      }, 2000);
+    }
+
+    function showFireworks() {
+      const fireworksContainer = document.getElementById('fireworks');
+      fireworksContainer.style.display = 'block';
+      fireworksContainer.innerHTML = ''; // Önceki havai fişekleri temizle
+
+      const fireworkCount = 10;
+
+      for (let i = 0; i < fireworkCount; i++) {
+        const firework = document.createElement('div');
+        firework.className = 'firework';
+        firework.style.width = `${Math.random() * 50 + 20}px`;
+        firework.style.height = firework.style.width;
+        firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        firework.style.left = `${Math.random() * 100}vw`;
+        firework.style.top = `${Math.random() * 100}vh`;
+        firework.style.animationDelay = `${Math.random() * 2}s`;
+        fireworksContainer.appendChild(firework);
+
+        // Havai fişek animasyonu
+        setTimeout(() => {
+          firework.style.animation = 'sparkle 1s linear forwards';
+        }, 0);
+      }
+
+      setTimeout(() => {
+        fireworksContainer.style.display = 'none'; // 5 saniye sonra gizle
+      }, 5000);
+    }
+
+    function updateStars() {
+      const starsContainer = document.getElementById('stars');
+      starsContainer.innerHTML = ''; // Eski yıldızları temizle
+      const starCount = Math.floor(score / 100); // Her 10 puanda bir yıldız
+
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('span');
+        star.className = 'star';
+        star.textContent = '★'; // Yıldız karakteri
+        starsContainer.appendChild(star);
+      }
+    }
+
+    document.getElementById('prime').addEventListener('click', function() {
+      const isCorrect = isPrime(currentNumber);
+      updateScore(isCorrect);
+    });
+
+    document.getElementById('not-prime').addEventListener('click', function() {
+      const isCorrect = !isPrime(currentNumber);
+      updateScore(isCorrect);
+    });
+
+    generateNumber(); // İlk sayıyı oluştur
+  </script>
+</body>
+</html>
