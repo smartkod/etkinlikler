@@ -341,6 +341,98 @@ a:focus {
 }
 </style>
 
+<!--/*---------------------------------------------------------*/-->
+
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    .content, .con {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .element {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .element.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .element {
+        width: calc(100% - 40px);
+        margin: 0 auto 20px auto;
+      }
+      .content, .con {
+        padding: 20px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .element {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+      }
+      .content {
+        padding: 40px 20px;
+      }
+    }
+
+    .link-wrapper {
+      display: inline-block;
+      position: relative;
+      padding: 8px 16px;
+      border: 1px solid #0077b6;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .link-wrapper a {
+      color: #0077b6;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .link-wrapper:hover a {
+      color: #005b8f;
+    }
+
+    .arrow {
+      font-weight: bold;
+      font-size: 30px;
+      color: #333;
+    }
+  </style>
+
+
+
+ 
 
 </head>
 <body>
